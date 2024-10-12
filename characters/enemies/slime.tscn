@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5toujsb6wbdd"]
+
+[ext_resource type="Script" path="res://characters/enemies/slime.gd" id="1_cp0bx"]
+[ext_resource type="Texture2D" uid="uid://bluyanheie3v5" path="res://characters/enemies/textures/ansimuz-shambler.png" id="2_8rx22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g258p"]
+size = Vector2(12, 36)
+
+[sub_resource type="Animation" id="Animation_efb2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qpeo4"]
+resource_name = "walk"
+length = 1.6
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwklc"]
+_data = {
+"RESET": SubResource("Animation_efb2x"),
+"walk": SubResource("Animation_qpeo4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca0t5"]
+size = Vector2(18, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q38y7"]
+size = Vector2(19, 32)
+
+[node name="Slime" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(1.5, 1.5)
+floor_max_angle = 0.523599
+script = ExtResource("1_cp0bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8rx22")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_g258p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jwklc")
+}
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_ca0t5")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_q38y7")
+
+[node name="Floor_RayCast" type="RayCast2D" parent="."]
+position = Vector2(-12, 0)
+target_position = Vector2(0, 30)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
