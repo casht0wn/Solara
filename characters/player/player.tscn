@@ -1428,8 +1428,8 @@ dash_duration = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-limit_left = 0
-limit_bottom = 720
+limit_left = -1280
+limit_bottom = 1440
 drag_horizontal_enabled = true
 editor_draw_drag_margin = true
 
