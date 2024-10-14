@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://nptb0bexh86l"]
+[gd_scene load_steps=74 format=3 uid="uid://nptb0bexh86l"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_knton"]
 [ext_resource type="Texture2D" uid="uid://dp8k83dnil2u0" path="res://characters/player/textures/Attack_KG_1.png" id="2_tcrjg"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://characters/player/states/landing.gd" id="37_ijalw"]
 [ext_resource type="Script" path="res://characters/player/states/dashing.gd" id="38_ynpfr"]
 [ext_resource type="Script" path="res://characters/player/states/wall_sliding.gd" id="39_qnwor"]
+[ext_resource type="Script" path="res://characters/player/states/attack_1.gd" id="41_ypevb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
 radius = 17.0
@@ -1442,8 +1443,8 @@ texture = ExtResource("3_0bo2x")
 texture_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("12_1ofsf")
-hframes = 4
+texture = ExtResource("2_tcrjg")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -1487,6 +1488,7 @@ script = ExtResource("39_qnwor")
 [node name="Vaulting" type="Node" parent="StateMachine"]
 
 [node name="Attack1" type="Node" parent="StateMachine"]
+script = ExtResource("41_ypevb")
 
 [node name="Attack2" type="Node" parent="StateMachine"]
 
