@@ -34,6 +34,6 @@ func flip_sprite(dir_x: float) -> void:
 		player.sprite.flip_h = true
 
 # Apply Air Drag
-func apply_air_drag():
+func apply_air_drag() -> void:
 	if not player.is_on_floor():
 		player.velocity.x *= player.air_drag  # Apply drag to horizontal movement
