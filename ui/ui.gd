@@ -3,14 +3,12 @@ extends CanvasLayer
 @onready var start_panel = $Control/StartPanel
 @onready var msg_panel = $Control/MessagePanel
 @onready var msg_label = $Control/MessagePanel/MessageLabel
-@onready var obscure = $Control/Obscure
 @onready var health_bar = $Control/HealthBar
 @onready var score_label = $Control/ScoreLabel
 
 func _ready() -> void:
 	# Show start panel, obsure game level, and pause processing
 	start_panel.show()
-	obscure.show()
 	get_tree().paused = true
 	# Hide player HUD elements
 	msg_panel.hide()
@@ -27,9 +25,8 @@ func _on_play_button_pressed():
 	start_panel.hide()
 	msg_panel.hide()
 	msg_label.hide()
-	obscure.hide()
 
 func add_heart():
 	# Hearts are 53px wide
-	health_bar.size.x += 53
+	health_bar.size.x += 236
 	

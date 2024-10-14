@@ -1,14 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://tqy0tnapx6jf"]
+[gd_scene load_steps=22 format=3 uid="uid://tqy0tnapx6jf"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_5kpp2"]
 [ext_resource type="Theme" uid="uid://bvhyyq5cyc5yn" path="res://ui/base_theme.tres" id="1_hyfcp"]
 [ext_resource type="Texture2D" uid="uid://bdhygh47y6dqo" path="res://ui/textures/PNG/Extra/Default/input_rectangle.png" id="3_g5gct"]
-[ext_resource type="Texture2D" uid="uid://ihond08qj34i" path="res://ui/textures/PNG/Red/Default/button_rectangle_flat.png" id="4_7fkr7"]
 [ext_resource type="Texture2D" uid="uid://cyhdi8hgp1ocr" path="res://ui/textures/Misc/Empty_Heart.png" id="4_nxyy3"]
-[ext_resource type="Texture2D" uid="uid://buvvryi8hy1o6" path="res://ui/textures/PNG/Red/Default/button_rectangle_border.png" id="5_d66qb"]
 [ext_resource type="Texture2D" uid="uid://buf5gm7ar4qd2" path="res://ui/textures/Misc/Heart_Red (2).png" id="5_e4bmc"]
 [ext_resource type="FontFile" uid="uid://br3baf42ftqsv" path="res://ui/fonts/Breathe Fire.otf" id="6_nfte1"]
-[ext_resource type="Texture2D" uid="uid://bclbtywjtw7p3" path="res://ui/textures/PNG/Red/Default/button_rectangle_depth_gloss.png" id="6_pvtyp"]
+[ext_resource type="Texture2D" uid="uid://ccbk1bm7bp8tm" path="res://ui/textures/Buttons/Button_Dark_Outline (2).png" id="7_lia3a"]
+[ext_resource type="Texture2D" uid="uid://bsu1vp30if5a5" path="res://ui/textures/Buttons/Button_Dark_Outline (3).png" id="8_kga8m"]
+[ext_resource type="Texture2D" uid="uid://bg7qln1spisfb" path="res://ui/textures/Buttons/Button_Dark (2).png" id="9_oluuc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4xtp"]
 texture = ExtResource("3_g5gct")
@@ -31,39 +31,30 @@ texture = ExtResource("5_e4bmc")
 axis_stretch_horizontal = 1
 region_rect = Rect2(-21.5, -10.5, 236, 193)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_siig3"]
-texture = ExtResource("4_7fkr7")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbehs"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1adr"]
-texture = ExtResource("5_d66qb")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-expand_margin_top = 10.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1jjg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8f71"]
 content_margin_left = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_34b2c"]
-texture = ExtResource("6_pvtyp")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+texture = ExtResource("7_lia3a")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ni8tt"]
+texture = ExtResource("8_kga8m")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htosb"]
-texture = ExtResource("6_pvtyp")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+texture = ExtResource("9_oluuc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_858ug"]
+texture = ExtResource("7_lia3a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku7v4"]
+texture = ExtResource("8_kga8m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uyrmg"]
+texture = ExtResource("9_oluuc")
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -116,14 +107,6 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_2rcwf")
 max_value = 3.0
 step = 0.5
 value = 3.0
-
-[node name="Obscure" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = -40.0
-offset_top = -20.0
-offset_right = 1240.0
-offset_bottom = 700.0
-color = Color(0.501961, 0.501961, 0.501961, 0.501961)
 
 [node name="MessagePanel" type="Panel" parent="Control"]
 visible = false
@@ -179,18 +162,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -171.0
-offset_top = -114.0
-offset_right = 171.0
-offset_bottom = 114.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("6_nfte1")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/tabbar_background = SubResource("StyleBoxTexture_siig3")
-theme_override_styles/panel = SubResource("StyleBoxTexture_c1adr")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_gbehs")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t1jjg")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_q8f71")
 tab_alignment = 1
 current_tab = 0
@@ -201,14 +184,15 @@ metadata/_tab_index = 0
 
 [node name="PlayButton" type="Button" parent="Control/StartPanel/Solara"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 58.0
-grow_horizontal = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_styles/hover = SubResource("StyleBoxTexture_34b2c")
@@ -217,18 +201,18 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_htosb")
 text = "PLay"
 
 [node name="OptionsButton" type="Button" parent="Control/StartPanel/Solara"]
-visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_top = 65.0
-offset_right = 50.0
-offset_bottom = 102.0
-grow_horizontal = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+offset_right = 100.0
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
+theme_override_styles/hover = SubResource("StyleBoxTexture_858ug")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ku7v4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uyrmg")
 text = "Options"
 
 [connection signal="pressed" from="Control/StartPanel/Solara/PlayButton" to="." method="_on_play_button_pressed"]

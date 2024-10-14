@@ -29,5 +29,5 @@ var can_airdash: bool = true
 var can_doublejump: bool = true
 var can_wallslide: bool = true
 
-@onready var sprite := $Sprite2D
-@onready var animation_player := $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer

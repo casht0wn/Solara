@@ -28,5 +28,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(DASHING)
 	elif Input.is_action_just_pressed("jump") and player.can_doublejump and player.jump_count < player.max_jumps:
 		finished.emit(JUMPING)
+	elif Input.is_action_pressed("attack1"):
+		finished.emit(ATTACK1)
 	elif player.velocity.y >= 0:
 		finished.emit(FALLING)

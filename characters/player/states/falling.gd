@@ -16,6 +16,8 @@ func physics_update(delta: float) -> void:
 		finished.emit(DASHING)
 	if player.is_on_wall() and player.can_wallslide:
 		finished.emit(SLIDING)
+	elif Input.is_action_pressed("attack1"):
+		finished.emit(ATTACK1)
 	elif Input.is_action_just_pressed("jump") and player.can_doublejump and player.jump_count < player.max_jumps:
 		finished.emit(JUMPING)
 	elif player.is_on_floor():

@@ -7,6 +7,7 @@ const FALLING = "Falling"
 const LANDING = "Landing"
 const DASHING = "Dashing"
 const SLIDING = "WallSliding"
+const ATTACK1 = "Attack1"
 
 var player: Player
 

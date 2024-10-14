@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://mnh4yqdq03xe"
+path="res://.godot/imported/Of Far Different Nature - Sheherazade (CC-BY).ogg-bc866c4f9328c0f98c182deba33e804b.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/Of Far Different Nature - Sheherazade (CC-BY).ogg"
+dest_files=["res://.godot/imported/Of Far Different Nature - Sheherazade (CC-BY).ogg-bc866c4f9328c0f98c182deba33e804b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
