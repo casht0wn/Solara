@@ -4,8 +4,10 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.velocity.x = 0.0
 	player.animation_player.play("idle_2")
 
-func physics_update(_delta: float) -> void:
-	apply_gravity(_delta)
+func physics_update(delta: float) -> void:
+	if player.dash_cooldown_timer > 0:
+		player.dash_cooldown_timer -= delta
+	apply_gravity(delta)
 	player.move_and_slide()
 
 	if not player.is_on_floor():

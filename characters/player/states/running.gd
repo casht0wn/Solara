@@ -4,6 +4,8 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.animation_player.play("walk_2")
 
 func physics_update(delta: float) -> void:
+	if player.dash_cooldown_timer > 0:
+		player.dash_cooldown_timer -= delta
 	var input_direction_x := get_movement_input().x
 	player.velocity.x = player.speed * input_direction_x
 	flip_sprite(input_direction_x)

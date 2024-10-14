@@ -1,7 +1,8 @@
-[gd_scene load_steps=72 format=3 uid="uid://nptb0bexh86l"]
+[gd_scene load_steps=73 format=3 uid="uid://nptb0bexh86l"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_knton"]
 [ext_resource type="Texture2D" uid="uid://dp8k83dnil2u0" path="res://characters/player/textures/Attack_KG_1.png" id="2_tcrjg"]
+[ext_resource type="Texture2D" uid="uid://cll6kxbnv2nav" path="res://levels/textures/light_01.png" id="3_0bo2x"]
 [ext_resource type="Texture2D" uid="uid://bub7ynfj4maj8" path="res://characters/player/textures/Attack_KG_2.png" id="3_nf2oi"]
 [ext_resource type="PackedScene" uid="uid://tqy0tnapx6jf" path="res://ui/ui.tscn" id="3_rdebr"]
 [ext_resource type="Texture2D" uid="uid://bhy1i2r80e4ui" path="res://characters/player/textures/Attack_KG_3.png" id="4_pew5s"]
@@ -1432,6 +1433,13 @@ limit_left = -1280
 limit_bottom = 1440
 drag_horizontal_enabled = true
 editor_draw_drag_margin = true
+
+[node name="InnerLight" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.768627, 0.768627)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.768627)
+texture = ExtResource("3_0bo2x")
+texture_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("12_1ofsf")
