@@ -1,6 +1,7 @@
 extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
+	player.armed = true
 	player.animation_player.speed_scale = 1.5
 	if player.is_on_floor():
 		player.animation_player.play("attack_1")

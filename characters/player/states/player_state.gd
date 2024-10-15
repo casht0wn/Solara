@@ -38,3 +38,7 @@ func flip_sprite(dir_x: float) -> void:
 func apply_air_drag() -> void:
 	if not player.is_on_floor():
 		player.velocity.x *= player.air_drag  # Apply drag to horizontal movement
+
+# Equip or Unequip Weapons
+func toggle_weapon() -> void:
+	player.armed = !player.armed

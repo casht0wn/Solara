@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://nptb0bexh86l"]
+[gd_scene load_steps=75 format=3 uid="uid://nptb0bexh86l"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_knton"]
 [ext_resource type="Texture2D" uid="uid://dp8k83dnil2u0" path="res://characters/player/textures/Attack_KG_1.png" id="2_tcrjg"]
@@ -1422,6 +1422,9 @@ _data = {
 "winner": SubResource("Animation_77umh")
 }
 
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_35udn"]
+nodes/output/position = Vector2(1100, 160)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 floor_max_angle = 0.872665
 script = ExtResource("1_knton")
@@ -1443,8 +1446,8 @@ texture = ExtResource("3_0bo2x")
 texture_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tcrjg")
-hframes = 6
+texture = ExtResource("12_1ofsf")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -1454,6 +1457,10 @@ shape = SubResource("CapsuleShape2D_k6kkr")
 libraries = {
 "": SubResource("AnimationLibrary_1mqm7")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_35udn")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="UI" parent="." instance=ExtResource("3_rdebr")]
 

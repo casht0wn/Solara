@@ -17,14 +17,21 @@ func _ready() -> void:
 	score_label.hide()
 
 func _on_play_button_pressed():
-	# Show player HUD elements and unpause processing
-	health_bar.show()
-	score_label.show()
-	get_tree().paused = false
-	# Hide start panel and unobscure game level
-	start_panel.hide()
+	# Hide start panel
+	var start_tween = get_tree().create_tween()
+	start_tween.tween_property(start_panel,"modulate:a",0,3)
+	start_tween.tween_callback(start_panel.hide)
 	msg_panel.hide()
 	msg_label.hide()
+	# Show player HUD elements and unpause processing
+	health_bar.show()
+	var health_tween = get_tree().create_tween()
+	health_tween.tween_property(health_bar,"modulate:a",1,3)
+	# score_label.show()
+	get_tree().paused = false
+
+func pause():
+	get_tree().paused = !get_tree().paused
 
 func add_heart():
 	# Hearts are 53px wide
