@@ -1,7 +1,10 @@
 extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	player.animation_player.play("walk_2")
+	if not player.armed:
+		player.animation_player.play("walk_1")
+	else:
+		player.animation_player.play("walk_2")
 
 func physics_update(delta: float) -> void:
 	if player.dash_cooldown_timer > 0:
@@ -14,6 +17,9 @@ func physics_update(delta: float) -> void:
 
 	if not player.is_on_floor():
 		finished.emit(FALLING)
+	elif Input.is_action_just_pressed("toggle_weapon"):
+		player.armed = !player.armed
+		finished.emit(IDLE)
 	elif Input.is_action_pressed("attack1"):
 		finished.emit(ATTACK1)
 	elif Input.is_action_just_pressed("jump"):

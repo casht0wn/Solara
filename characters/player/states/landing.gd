@@ -2,7 +2,10 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.jump_count = 0
-	player.animation_player.play("land_2")
+	if not player.armed:
+		player.animation_player.play("land_1")
+	else:
+		player.animation_player.play("land_2")
 
 func physics_update(delta: float) -> void:
 	if player.dash_cooldown_timer > 0:
