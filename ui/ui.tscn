@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://tqy0tnapx6jf"]
+[gd_scene load_steps=11 format=3 uid="uid://tqy0tnapx6jf"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_5kpp2"]
 [ext_resource type="Theme" uid="uid://bvhyyq5cyc5yn" path="res://ui/base_theme.tres" id="1_hyfcp"]
@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cyhdi8hgp1ocr" path="res://ui/textures/Misc/Empty_Heart.png" id="4_nxyy3"]
 [ext_resource type="Texture2D" uid="uid://buf5gm7ar4qd2" path="res://ui/textures/Misc/Heart_Red (2).png" id="5_e4bmc"]
 [ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://ui/fonts/MorrisRomanBlack.ttf" id="6_pkjue"]
-[ext_resource type="Texture2D" uid="uid://ccbk1bm7bp8tm" path="res://ui/textures/Buttons/Button_Dark_Outline (2).png" id="7_lia3a"]
-[ext_resource type="Texture2D" uid="uid://bsu1vp30if5a5" path="res://ui/textures/Buttons/Button_Dark_Outline (3).png" id="8_kga8m"]
-[ext_resource type="Texture2D" uid="uid://bg7qln1spisfb" path="res://ui/textures/Buttons/Button_Dark (2).png" id="9_oluuc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4xtp"]
 texture = ExtResource("3_g5gct")
@@ -31,30 +28,7 @@ texture = ExtResource("5_e4bmc")
 axis_stretch_horizontal = 1
 region_rect = Rect2(-21.5, -10.5, 236, 193)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbehs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1jjg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8f71"]
-content_margin_left = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_34b2c"]
-texture = ExtResource("7_lia3a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ni8tt"]
-texture = ExtResource("8_kga8m")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htosb"]
-texture = ExtResource("9_oluuc")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_858ug"]
-texture = ExtResource("7_lia3a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku7v4"]
-texture = ExtResource("8_kga8m")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uyrmg"]
-texture = ExtResource("9_oluuc")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nofd"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -157,34 +131,42 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "OK"
 
-[node name="StartPanel" type="TabContainer" parent="Control"]
+[node name="StartPanel" type="Panel" parent="Control"]
+custom_minimum_size = Vector2(1024, 512)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2nofd")
+
+[node name="RichTextLabel" type="Label" parent="Control/StartPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.768627, 0.768627, 0.768627, 1)
+theme_override_colors/font_shadow_color = Color(0.996078, 1, 0.25098, 0.501961)
 theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("6_pkjue")
 theme_override_font_sizes/font_size = 96
-theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_gbehs")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_t1jjg")
-theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_q8f71")
-tab_alignment = 1
-current_tab = 0
+text = "Solara"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Solara" type="Control" parent="Control/StartPanel"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="PlayButton" type="Button" parent="Control/StartPanel/Solara"]
+[node name="PlayButton" type="Button" parent="Control/StartPanel"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -192,29 +174,23 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -48.0
+offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_styles/hover = SubResource("StyleBoxTexture_34b2c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ni8tt")
-theme_override_styles/normal = SubResource("StyleBoxTexture_htosb")
 text = "PLay"
 
-[node name="OptionsButton" type="Button" parent="Control/StartPanel/Solara"]
+[node name="OptionsButton" type="Button" parent="Control/StartPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -37.0
+offset_top = -45.0
 offset_right = 100.0
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_styles/hover = SubResource("StyleBoxTexture_858ug")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ku7v4")
-theme_override_styles/normal = SubResource("StyleBoxTexture_uyrmg")
 text = "Options"
 
-[connection signal="pressed" from="Control/StartPanel/Solara/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/StartPanel/PlayButton" to="." method="_on_play_button_pressed"]
