@@ -29,13 +29,12 @@ func get_movement_input() -> Vector2:
 	return direction
 
 # Flip Sprite Horizontally
-func flip_sprite(dir_x: float) -> void:
+func flip_facing(dir_x: float) -> void:
 	var dx = sign(dir_x)
 	var diff_x = int(player.facing_right)*2-1
 	if dx and dx != diff_x:
 		player.scale.x = -1
 		player.facing_right = !player.facing_right
-		print("Facing Right: ", player.facing_right)
 
 # Apply Air Drag
 func apply_air_drag() -> void:

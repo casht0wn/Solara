@@ -15,6 +15,9 @@ func _ready() -> void:
 	msg_label.hide()
 	health_bar.hide()
 	score_label.hide()
+	# Play menu music
+	AudioGlobal.current_music_clip = AudioGlobal.bg_music_clips.MENU
+
 
 func _on_play_button_pressed():
 	# Hide start panel
@@ -29,6 +32,10 @@ func _on_play_button_pressed():
 	health_tween.tween_property(health_bar,"modulate:a",1,3)
 	# score_label.show()
 	get_tree().paused = false
+	# Switch music from menu to level 1
+	AudioGlobal.current_music_clip = AudioGlobal.bg_music_clips.LEVEL1
+	
+	
 
 func pause():
 	get_tree().paused = !get_tree().paused

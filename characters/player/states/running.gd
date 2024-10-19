@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 	else:
 		player.velocity.x = lerp(player.velocity.x, 0.0, player.friction * delta)
 
-	flip_sprite(input_direction_x)
+	flip_facing(input_direction_x)
 	apply_gravity(delta)
 	player.move_and_slide()
 
@@ -23,11 +23,9 @@ func physics_update(delta: float) -> void:
 		player.animation_tree.set("parameters/conditions/is_walking", false)
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("toggle_weapon"):
-		player.armed = !player.armed
-		player.animation_tree.set("parameters/idle/blend_position", Vector2(int(player.armed), int(player.crouched)))
-		player.animation_tree.set("parameters/walk/blend_position", Vector2(int(player.armed), int(player.crouched)))
+		player.toggle_weapon()
 		player.animation_tree.set("parameters/conditions/is_walking", false)
-		finished.emit(IDLE)
+		finished.emit(RUNNING)
 	elif Input.is_action_pressed("attack1"):
 		player.animation_tree.set("parameters/conditions/is_walking", false)
 		finished.emit(ATTACK1)

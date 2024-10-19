@@ -1,18 +1,18 @@
 extends CrabState
 
-var direction: float
+var direction: float = sign(randf() - 0.5)
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	crab.animation_player.play("walk")
 	crab.patrol_time = randf_range(5.0, 10.0)
 	crab.patrol_timer = crab.patrol_time
-	direction = clampf(float(randi_range(0,1)*2-1), -1.0, 1.0)
-	print("Crab entered Patrol state for", crab.patrol_time, "seconds")
+	print("Crab entered Patrol state for ", round(crab.idle_time), " seconds")
 	
-
 func physics_update(delta: float) -> void:
 	crab.patrol_timer -= delta
+	direction = avoid_falling(direction)
 	crab.velocity.x = crab.speed * direction
+	flip_facing(direction)
 	apply_gravity(delta)
 	crab.move_and_slide()
 	

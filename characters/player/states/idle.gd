@@ -15,9 +15,7 @@ func physics_update(delta: float) -> void:
 		player.animation_tree.set("parameters/conditions/idle", false)
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("toggle_weapon"):
-		player.armed = !player.armed
-		player.animation_tree.set("parameters/idle/blend_position", Vector2(int(player.armed), int(player.crouched)))
-		player.animation_tree.set("parameters/walk/blend_position", Vector2(int(player.armed), int(player.crouched)))
+		player.toggle_weapon()
 		player.animation_tree.set("parameters/conditions/idle", false)
 		finished.emit(IDLE)
 	elif Input.is_action_pressed("attack1"):
