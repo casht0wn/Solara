@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://j8r8d2o4ynwh"
+path="res://.godot/imported/Of Far Different Nature - Largo (CC-BY).ogg-0a7a5744f6a5496d8de1f545bdbc5bbb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Of Far Different Nature - Largo (CC-BY).ogg"
+dest_files=["res://.godot/imported/Of Far Different Nature - Largo (CC-BY).ogg-0a7a5744f6a5496d8de1f545bdbc5bbb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

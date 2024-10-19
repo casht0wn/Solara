@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6peb0wup3jk"]
+
+[ext_resource type="Script" path="res://utils/hitbox.gd" id="1_m7mi5"]
+
+[node name="Hitbox" type="Area2D"]
+script = ExtResource("1_m7mi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="DisableHitboxTimer" type="Timer" parent="."]

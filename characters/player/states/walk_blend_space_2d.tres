@@ -1,0 +1,28 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=5 format=3 uid="uid://cdm7utldq3rkh"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsu1c"]
+animation = &"walk_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ckkba"]
+animation = &"walk_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s6gfj"]
+animation = &"crouch_walk_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0eie0"]
+animation = &"crouch_walk_2"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_wsu1c")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ckkba")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_s6gfj")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_0eie0")
+blend_point_3/pos = Vector2(1, 1)
+min_space = Vector2(0, 0)
+snap = Vector2(1, 1)
+x_label = "armed"
+y_label = "crouch"
+blend_mode = 1

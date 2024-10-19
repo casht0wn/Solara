@@ -2,10 +2,8 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.jump_count = 0
-	if not player.armed:
-		player.animation_player.play("land_1")
-	else:
-		player.animation_player.play("land_2")
+	reset_player_animations()
+	player.animation_tree.set("parameters/conditions/is_landed", 1)
 
 func physics_update(delta: float) -> void:
 	if player.dash_cooldown_timer > 0:
@@ -18,6 +16,11 @@ func physics_update(delta: float) -> void:
 
 	if player.is_on_floor():
 		if is_equal_approx(input_direction_x, 0.0):
+			player.animation_tree.set("parameters/conditions/is_landed", 0)
 			finished.emit(IDLE)
 		else:
+			player.animation_tree.set("parameters/conditions/is_landed", 0)
 			finished.emit(RUNNING)
+	else:
+		player.animation_tree.set("parameters/conditions/is_falling", 0)
+		finished.emit(FALLING)

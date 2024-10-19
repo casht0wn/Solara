@@ -2,7 +2,8 @@ class_name Player extends CharacterBody2D
 
 # Settings
 @export var speed: float = 200.0
-@export var gravity: float = 980.0
+@export var acceleration: float = 100.0
+@export var friction: float = 150.0
 @export var air_drag: float = 0.9
 @export var jump_impulse: float = 400.0
 @export var dash_speed: float = 600.0
@@ -10,6 +11,8 @@ class_name Player extends CharacterBody2D
 @export var dash_cooldown: float = 0.5
 @export var wall_jump_force: float = 50.0
 @export var wall_slide_speed: float = 100.0
+
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Variables
 var dash_time: float = 0.0
@@ -24,10 +27,17 @@ var jump_buffer_time: float = 0.2
 var jump_buffer_timer: float = 0.0
 
 # Statuses
+var facing_right: bool = true
 var armed: bool = false
+var crouched: bool = false
 var can_airdash: bool = true
 var can_doublejump: bool = true
 var can_wallslide: bool = true
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var slide_dust: CPUParticles2D = $SlideDust
+@onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+signal player_damaged(damage_amount)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://basoaxfr6avuc"
+path="res://.godot/imported/Of Far Different Nature - Choppin (CC-BY).ogg-352d4260afc86f347db4d44c8e683de9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Of Far Different Nature - Choppin (CC-BY).ogg"
+dest_files=["res://.godot/imported/Of Far Different Nature - Choppin (CC-BY).ogg-352d4260afc86f347db4d44c8e683de9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
