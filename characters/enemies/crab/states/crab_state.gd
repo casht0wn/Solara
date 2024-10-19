@@ -24,15 +24,21 @@ func apply_gravity(delta: float) -> void:
 	crab.velocity.y += crab.gravity * delta
 
 # Flip the sprite based on direction, adjusted for left-facing default sprites
-func flip(dir_x: float) -> void:
-	var flip_threshold = 10.0  # Adjust this value based on your crab's size
-	if dir_x > flip_threshold or dir_x < -flip_threshold:
-		var dx = sign(dir_x)
-		var diff_x = int(crab.facing_right)*2-1
-		if dx and dx != diff_x:
-			crab.scale.x = -1
-			crab.facing_right = !crab.facing_right
-			print("Facing Right: ", crab.facing_right)
+func flip_facing(dir_x: float) -> void:
+	var dx = sign(dir_x)
+	var diff_x = int(crab.facing_right)*2-1
+	if dx and dx != diff_x:
+		crab.scale.x = -1
+		crab.facing_right = !crab.facing_right
+		print("Facing Right: ", crab.facing_right)
+
+# Avoid ledges
+func avoid_falling(dir_x: float) -> float:
+	var new_dir_x = dir_x
+	if not crab.floor_cast.is_colliding() and crab.is_on_floor():
+		new_dir_x = -dir_x
+		flip_facing(sign(new_dir_x))
+	return new_dir_x
 
 # Check line of sight
 func check_line_of_sight():
@@ -43,9 +49,6 @@ func check_line_of_sight():
 		# Make sure raycasting works for both directions (left or right)
 		crab.raycast.target_position = direction_to_player.normalized() * crab.detection_range
 		crab.raycast.force_raycast_update()
-
-		# Flip based on player position (X-axis)
-		flip(direction_to_player.x)
 
 		# Check for line of sight
 		if not crab.raycast.is_colliding():

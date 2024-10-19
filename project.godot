@@ -15,6 +15,14 @@ run/main_scene="res://levels/level1/level_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+AudioGlobal="*res://utils/audio_global.gd"
+
 [display]
 
 window/size/viewport_width=1280

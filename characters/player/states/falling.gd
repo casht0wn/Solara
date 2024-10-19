@@ -8,7 +8,7 @@ func physics_update(delta: float) -> void:
 	player.dash_cooldown_timer -= delta
 	var input_direction_x := get_movement_input().x
 	player.velocity.x = player.speed * input_direction_x
-	flip_sprite(input_direction_x)
+	flip_facing(input_direction_x)
 	apply_gravity(delta)
 	apply_air_drag()
 	player.move_and_slide()

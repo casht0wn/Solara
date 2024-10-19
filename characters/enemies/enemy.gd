@@ -18,4 +18,5 @@ signal award_points(amount: int)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var raycast = $RayCast2D  # RayCast2D node attached to the enemy
+@onready var raycast = $Player_RayCast2D 
+@onready var floor_cast = $Floor_RayCast2D 

@@ -1,5 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://1vxneu7ryh4t"]
 
+[ext_resource type="PackedScene" uid="uid://che2gq3vi5mvj" path="res://utils/audio_manager.tscn" id="1_26b1q"]
 [ext_resource type="Texture2D" uid="uid://2cskmtqctbr3" path="res://levels/level1/textures/SET3_background1.png" id="1_pkksl"]
 [ext_resource type="Texture2D" uid="uid://boq85b71mhcdx" path="res://levels/level1/textures/SET3_background2.png" id="2_hi7q5"]
 [ext_resource type="Texture2D" uid="uid://cbls8dbghcxnw" path="res://levels/level1/textures/SET3_background3.png" id="3_rgwbl"]
@@ -7,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b7tf5ve56fuvh" path="res://objects/fire.tscn" id="6_mq151"]
 [ext_resource type="TileSet" uid="uid://bwhosoh17467b" path="res://levels/level1/level_1_tile_set.tres" id="6_vfppi"]
 [ext_resource type="PackedScene" uid="uid://nptb0bexh86l" path="res://characters/player/player.tscn" id="7_c81oo"]
-[ext_resource type="AudioStream" uid="uid://borw1puuaprlp" path="res://assets/audio/music/Of Far Different Nature - Epic Departure [v2] (CC-BY).ogg" id="8_q4fat"]
 [ext_resource type="PackedScene" uid="uid://22u7s6juo4jm" path="res://characters/enemies/crab/crab.tscn" id="9_6a4n6"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="AudioManager" parent="." instance=ExtResource("1_26b1q")]
+unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.501961, 0.501961, 0.501961, 1)
@@ -69,19 +72,34 @@ tile_set = ExtResource("6_vfppi")
 [node name="Player" parent="." instance=ExtResource("7_c81oo")]
 position = Vector2(-573, 126)
 
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_q4fat")
-volume_db = -20.0
-autoplay = true
-
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node" parent="."]
 
 [node name="Crab" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
-position = Vector2(437, 239)
+position = Vector2(259, 241)
 speed = 35.0
 health = 10
 points = 100
 damage = 1
-detection_range = 150.0
-field_of_view_angle = 60.0
+detection_range = 200.0
+field_of_view_angle = 65.0
+player = NodePath("../../Player")
+
+[node name="Crab2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
+position = Vector2(741, 158)
+speed = 35.0
+health = 10
+points = 100
+damage = 1
+detection_range = 200.0
+field_of_view_angle = 65.0
+player = NodePath("../../Player")
+
+[node name="Crab3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
+position = Vector2(-81, -129)
+speed = 35.0
+health = 10
+points = 100
+damage = 1
+detection_range = 200.0
+field_of_view_angle = 65.0
 player = NodePath("../../Player")

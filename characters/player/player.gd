@@ -30,14 +30,14 @@ var jump_buffer_timer: float = 0.0
 var facing_right: bool = true
 var armed: bool = false
 var crouched: bool = false
-var can_airdash: bool = true
-var can_doublejump: bool = true
-var can_wallslide: bool = true
+var can_airdash: bool = false
+var can_doublejump: bool = false
+var can_wallslide: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var slide_dust: CPUParticles2D = $SlideDust
+@onready var slide_dust: CPUParticles2D = $Particles/SlideDust
 @onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal player_damaged(damage_amount)

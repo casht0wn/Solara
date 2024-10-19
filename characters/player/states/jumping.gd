@@ -21,7 +21,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = -sign(input_direction_x) * player.wall_jump_force
 	else:
 		player.velocity.x = player.speed * input_direction_x
-		flip_sprite(input_direction_x)
+		flip_facing(input_direction_x)
 	apply_gravity(delta)
 	apply_air_drag()
 	player.move_and_slide()
