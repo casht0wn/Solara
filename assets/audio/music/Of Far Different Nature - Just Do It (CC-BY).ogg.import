@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dte23nnep5grq"
+path="res://.godot/imported/Of Far Different Nature - Just Do It (CC-BY).ogg-9eb436e51d372cda9858a96cc9d28ad6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Of Far Different Nature - Just Do It (CC-BY).ogg"
+dest_files=["res://.godot/imported/Of Far Different Nature - Just Do It (CC-BY).ogg-9eb436e51d372cda9858a96cc9d28ad6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
