@@ -38,6 +38,5 @@ var can_wallslide: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var slide_dust: CPUParticles2D = $Particles/SlideDust
-@onready var sfx_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal player_damaged(damage_amount)

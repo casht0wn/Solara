@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://22u7s6juo4jm"]
 
 [ext_resource type="Script" path="res://characters/enemies/crab/crab.gd" id="1_qyfw7"]
-[ext_resource type="Texture2D" uid="uid://ctgtdtqtkbfg4" path="res://characters/enemies/textures/crab-idle.png" id="2_2t7hh"]
-[ext_resource type="Texture2D" uid="uid://cockj3qhll2dl" path="res://characters/enemies/textures/crab-walk.png" id="3_tqomm"]
+[ext_resource type="Texture2D" uid="uid://y740qmx53bi1" path="res://assets/textures/sprites/cave_crab/crab-idle.png" id="2_2t7hh"]
+[ext_resource type="Texture2D" uid="uid://cs1u7rn0ijr5v" path="res://assets/textures/sprites/cave_crab/crab-walk.png" id="3_tqomm"]
 [ext_resource type="PackedScene" uid="uid://bf6peb0wup3jk" path="res://utils/hitbox.tscn" id="4_ecpe2"]
 [ext_resource type="PackedScene" uid="uid://b4mcnkgnhc0bt" path="res://utils/hurtbox.tscn" id="5_45ui1"]
 [ext_resource type="Script" path="res://characters/enemies/crab/states/idle.gd" id="7_g08ef"]

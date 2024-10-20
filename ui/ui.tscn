@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_5kpp2"]
 [ext_resource type="Theme" uid="uid://bvhyyq5cyc5yn" path="res://ui/base_theme.tres" id="1_hyfcp"]
-[ext_resource type="Texture2D" uid="uid://bdhygh47y6dqo" path="res://ui/textures/PNG/Extra/Default/input_rectangle.png" id="3_g5gct"]
-[ext_resource type="Texture2D" uid="uid://cyhdi8hgp1ocr" path="res://ui/textures/Misc/Empty_Heart.png" id="4_nxyy3"]
-[ext_resource type="Texture2D" uid="uid://buf5gm7ar4qd2" path="res://ui/textures/Misc/Heart_Red (2).png" id="5_e4bmc"]
-[ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://ui/fonts/MorrisRomanBlack.ttf" id="6_pkjue"]
+[ext_resource type="Texture2D" uid="uid://bdhygh47y6dqo" path="res://assets/textures/ui/PNG/Extra/Default/input_rectangle.png" id="3_g5gct"]
+[ext_resource type="Texture2D" uid="uid://cyhdi8hgp1ocr" path="res://assets/textures/ui/Misc/Empty_Heart.png" id="4_nxyy3"]
+[ext_resource type="Texture2D" uid="uid://buf5gm7ar4qd2" path="res://assets/textures/ui/Misc/Heart_Red (2).png" id="5_e4bmc"]
+[ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://assets/fonts/MorrisRomanBlack.ttf" id="6_pkjue"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4xtp"]
 texture = ExtResource("3_g5gct")

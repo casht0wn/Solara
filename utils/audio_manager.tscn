@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://utils/audio_manager.gd" id="1_2a60n"]
 [ext_resource type="AudioStream" uid="uid://bcq83k0o40d3" path="res://assets/audio/music/Of Far Different Nature - 8-Bit Hero Quest (CC-BY).ogg" id="1_wxlpk"]
-[ext_resource type="AudioStream" uid="uid://djmcptug3x" path="res://assets/audio/music/Of Far Different Nature - Act and Contemplate (CC-BY).ogg" id="2_42vbx"]
+[ext_resource type="AudioStream" uid="uid://c312dko3ts7ne" path="res://assets/audio/music/Of Far Different Nature - In Darkness [v2] (CC-BY).ogg" id="3_es2b3"]
 [ext_resource type="AudioStream" uid="uid://basoaxfr6avuc" path="res://assets/audio/music/Of Far Different Nature - Choppin (CC-BY).ogg" id="3_nb2p1"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_sf640"]
@@ -11,7 +11,7 @@ stream_0 = ExtResource("1_wxlpk")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_04ljl"]
 stream_count = 1
-stream_0 = ExtResource("2_42vbx")
+stream_0 = ExtResource("3_es2b3")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_i53wx"]
 stream_count = 1
