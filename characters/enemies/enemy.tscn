@@ -1,0 +1,162 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxyifc58vbqab"]
+
+[ext_resource type="Texture2D" uid="uid://y740qmx53bi1" path="res://assets/textures/sprites/cave_crab/crab-idle.png" id="2_1le4o"]
+[ext_resource type="PackedScene" uid="uid://bf6peb0wup3jk" path="res://utils/hitbox.tscn" id="3_cdlp7"]
+[ext_resource type="PackedScene" uid="uid://b4mcnkgnhc0bt" path="res://utils/hurtbox.tscn" id="4_qdvxg"]
+[ext_resource type="Texture2D" uid="uid://cs1u7rn0ijr5v" path="res://assets/textures/sprites/cave_crab/crab-walk.png" id="5_beab1"]
+[ext_resource type="Script" path="res://utils/state_machine.gd" id="6_f86f3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kivb"]
+size = Vector2(22, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t008i"]
+size = Vector2(18, 16)
+
+[sub_resource type="Animation" id="Animation_uln2b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1le4o")]
+}
+
+[sub_resource type="Animation" id="Animation_ur0iy"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1le4o")]
+}
+
+[sub_resource type="Animation" id="Animation_b4hyn"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_beab1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnmig"]
+_data = {
+"RESET": SubResource("Animation_uln2b"),
+"idle": SubResource("Animation_ur0iy"),
+"walk": SubResource("Animation_b4hyn")
+}
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_mask = 3
+floor_max_angle = 0.872665
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_k6kkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1le4o")
+hframes = 4
+
+[node name="Hitbox" parent="." instance=ExtResource("3_cdlp7")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2kivb")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_qdvxg")]
+collision_mask = 5
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_t008i")
+
+[node name="Player_RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Floor_RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-15, 0)
+target_position = Vector2(0, 25)
+collision_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rnmig")
+}
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("6_f86f3")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Patrol" type="Node" parent="StateMachine"]
+
+[node name="Chase" type="Node" parent="StateMachine"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]
