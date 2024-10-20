@@ -12,6 +12,8 @@ func enter(previous_state_path: String, _data := {}) -> void:
 	else:
 		walljump = false
 	player.animation_player.play("jump")
+	player.sfx_player["parameters/switch_to_clip"] = "Jump"
+	player.sfx_player.play()
 
 func physics_update(delta: float) -> void:
 	if player.dash_cooldown_timer > 0:

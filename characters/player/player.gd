@@ -30,6 +30,7 @@ var jump_buffer_timer: float = 0.0
 var facing_right: bool = true
 var armed: bool = false
 var crouched: bool = false
+
 var can_airdash: bool = false
 var can_doublejump: bool = false
 var can_wallslide: bool = false
@@ -38,5 +39,10 @@ var can_wallslide: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var slide_dust: CPUParticles2D = $Particles/SlideDust
+@onready var sfx_player: AudioStreamPlayer2D = $SfxOneShot
+@onready var sfx_walk: AudioStreamPlayer2D = $SfxWalk
 
 signal player_damaged(damage_amount)
+
+func _play_footstep_sound() -> void:
+	sfx_walk.play()

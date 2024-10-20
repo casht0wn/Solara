@@ -30,7 +30,6 @@ func flip_facing(dir_x: float) -> void:
 	if dx and dx != diff_x:
 		crab.scale.x = -1
 		crab.facing_right = !crab.facing_right
-		print("Facing Right: ", crab.facing_right)
 
 # Avoid ledges
 func avoid_falling(dir_x: float) -> float:

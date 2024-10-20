@@ -16,7 +16,6 @@ func _process(_delta: float) -> void:
 		current_clip = AudioGlobal.current_music_clip
 		clip_name = AudioGlobal.BG_MUSIC_CLIPS[current_clip]
 		set_current_clip(clip_name)
-		print("BG Music: ", clip_name)
 
 func set_current_clip(clip: String) -> void:
 	bg_music_player["parameters/switch_to_clip"] = clip

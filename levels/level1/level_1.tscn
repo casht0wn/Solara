@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://1vxneu7ryh4t"]
+[gd_scene load_steps=14 format=4 uid="uid://1vxneu7ryh4t"]
 
 [ext_resource type="PackedScene" uid="uid://che2gq3vi5mvj" path="res://utils/audio_manager.tscn" id="1_26b1q"]
 [ext_resource type="Texture2D" uid="uid://2cskmtqctbr3" path="res://levels/level1/textures/SET3_background1.png" id="1_pkksl"]
@@ -9,6 +9,18 @@
 [ext_resource type="TileSet" uid="uid://bwhosoh17467b" path="res://levels/level1/level_1_tile_set.tres" id="6_vfppi"]
 [ext_resource type="PackedScene" uid="uid://nptb0bexh86l" path="res://characters/player/player.tscn" id="7_c81oo"]
 [ext_resource type="PackedScene" uid="uid://22u7s6juo4jm" path="res://characters/enemies/crab/crab.tscn" id="9_6a4n6"]
+[ext_resource type="PackedScene" uid="uid://mchh6rgo3hty" path="res://utils/enemy_spawner.tscn" id="9_pjr17"]
+[ext_resource type="Script" path="res://utils/spawn_info.gd" id="10_qe1hi"]
+
+[sub_resource type="Resource" id="Resource_n3klx"]
+script = ExtResource("10_qe1hi")
+enemy = ExtResource("9_6a4n6")
+position = Vector2(450, 250)
+
+[sub_resource type="Resource" id="Resource_arv1q"]
+script = ExtResource("10_qe1hi")
+enemy = ExtResource("9_6a4n6")
+position = Vector2(700, 155)
 
 [node name="Level1" type="Node2D"]
 
@@ -72,34 +84,5 @@ tile_set = ExtResource("6_vfppi")
 [node name="Player" parent="." instance=ExtResource("7_c81oo")]
 position = Vector2(-573, 126)
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Crab" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
-position = Vector2(259, 241)
-speed = 35.0
-health = 10
-points = 100
-damage = 1
-detection_range = 200.0
-field_of_view_angle = 65.0
-player = NodePath("../../Player")
-
-[node name="Crab2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
-position = Vector2(741, 158)
-speed = 35.0
-health = 10
-points = 100
-damage = 1
-detection_range = 200.0
-field_of_view_angle = 65.0
-player = NodePath("../../Player")
-
-[node name="Crab3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("9_6a4n6")]
-position = Vector2(-81, -129)
-speed = 35.0
-health = 10
-points = 100
-damage = 1
-detection_range = 200.0
-field_of_view_angle = 65.0
-player = NodePath("../../Player")
+[node name="EnemySpawner" parent="." instance=ExtResource("9_pjr17")]
+spawns = Array[ExtResource("10_qe1hi")]([SubResource("Resource_n3klx"), SubResource("Resource_arv1q")])

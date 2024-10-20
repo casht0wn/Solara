@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://nptb0bexh86l"]
+[gd_scene load_steps=147 format=3 uid="uid://nptb0bexh86l"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_knton"]
 [ext_resource type="Texture2D" uid="uid://cp1ng6rdwgimy" path="res://assets/textures/sprites/knight_player/Attack_KG_1.png" id="2_tcrjg"]
@@ -51,6 +51,8 @@
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://bvofxqmsppr5g" path="res://characters/player/states/idle_blend_space_2d.tres" id="40_q4rcv"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://cdm7utldq3rkh" path="res://characters/player/states/walk_blend_space_2d.tres" id="41_gw2pg"]
 [ext_resource type="Script" path="res://characters/player/states/attack_1.gd" id="41_ypevb"]
+[ext_resource type="AudioStream" uid="uid://bousmt1s2ox7x" path="res://assets/audio/sfx/player/walking/stone_01_a.wav" id="52_1eagb"]
+[ext_resource type="AudioStream" uid="uid://m2e101chuynb" path="res://assets/audio/sfx/player/boots-leather-jump-01.wav" id="53_nrwkw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
 radius = 9.0
@@ -67,6 +69,38 @@ size = Vector2(100, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t008i"]
 size = Vector2(20, 57)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_a3l5g"]
+clip_count = 1
+clip_0/name = &"jump"
+clip_0/stream = ExtResource("53_nrwkw")
+clip_0/auto_advance = 0
+_transitions = {
+Vector2i(-1, 0): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 0): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+}
+}
 
 [sub_resource type="Animation" id="Animation_b6enw"]
 length = 0.001
@@ -1629,6 +1663,23 @@ tracks/3/keys = {
 "update": 0,
 "values": [8.0]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_sound"
+}, {
+"args": [],
+"method": &"_play_footstep_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_j3x3s"]
 resource_name = "walk_2"
@@ -1682,6 +1733,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [8.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_sound"
+}, {
+"args": [],
+"method": &"_play_footstep_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_b4105"]
@@ -2108,17 +2176,29 @@ anim_speed_min = 0.5
 anim_speed_max = 0.5
 
 [node name="Hitbox" parent="." instance=ExtResource("4_axvin")]
+visible = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_2kivb")
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_isht7")]
+visible = false
 collision_mask = 5
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_t008i")
+
+[node name="SfxOneShot" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamInteractive_a3l5g")
+max_polyphony = 2
+bus = &"Sfx"
+
+[node name="SfxWalk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("52_1eagb")
+max_polyphony = 4
+bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
