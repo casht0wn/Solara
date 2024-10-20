@@ -16,7 +16,7 @@ func _ready() -> void:
 	health_bar.hide()
 	score_label.hide()
 	# Play menu music
-	AudioGlobal.current_music_clip = AudioGlobal.bg_music_clips.MENU
+	AudioGlobal.current_music_clip = AudioGlobal.bg_music.MENU
 
 
 func _on_play_button_pressed():
@@ -33,7 +33,7 @@ func _on_play_button_pressed():
 	# score_label.show()
 	get_tree().paused = false
 	# Switch music from menu to level 1
-	AudioGlobal.current_music_clip = AudioGlobal.bg_music_clips.LEVEL1
+	AudioGlobal.current_music_clip = AudioGlobal.bg_music.LEVEL1
 	
 	
 
