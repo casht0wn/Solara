@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://82sjf1lg7u5v"
-path="res://.godot/imported/sliding_loopable.wav-3e2cb4d37631de2029b353e63d97b90f.sample"
+path="res://.godot/imported/sliding_loopable.wav-cacb028693d0821aea37b72071f28894.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/player/special/sliding_loopable.wav"
-dest_files=["res://.godot/imported/sliding_loopable.wav-3e2cb4d37631de2029b353e63d97b90f.sample"]
+source_file="res://characters/sliding_loopable.wav"
+dest_files=["res://.godot/imported/sliding_loopable.wav-cacb028693d0821aea37b72071f28894.sample"]
 
 [params]
 

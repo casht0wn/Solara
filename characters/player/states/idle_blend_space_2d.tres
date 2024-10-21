@@ -9,7 +9,7 @@ animation = &"idle_2"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aly6k"]
 animation = &"crouch_idle_1"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtepo"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gus0m"]
 animation = &"crouch_idle_2"
 
 [resource]
@@ -19,7 +19,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_ueotm")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_aly6k")
 blend_point_2/pos = Vector2(0, 1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_vtepo")
+blend_point_3/node = SubResource("AnimationNodeAnimation_gus0m")
 blend_point_3/pos = Vector2(1, 1)
 min_space = Vector2(0, 0)
 snap = Vector2(1, 1)

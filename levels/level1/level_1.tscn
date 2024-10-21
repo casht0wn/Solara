@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://1vxneu7ryh4t"]
+[gd_scene load_steps=15 format=4 uid="uid://1vxneu7ryh4t"]
 
 [ext_resource type="PackedScene" uid="uid://che2gq3vi5mvj" path="res://utils/audio_manager.tscn" id="1_26b1q"]
 [ext_resource type="Texture2D" uid="uid://2cskmtqctbr3" path="res://levels/level1/textures/SET3_background1.png" id="1_pkksl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://22u7s6juo4jm" path="res://characters/enemies/crab/crab.tscn" id="9_6a4n6"]
 [ext_resource type="PackedScene" uid="uid://mchh6rgo3hty" path="res://utils/enemy_spawner.tscn" id="9_pjr17"]
 [ext_resource type="Script" path="res://utils/spawn_info.gd" id="10_qe1hi"]
+[ext_resource type="PackedScene" uid="uid://b0ud22xqpvscw" path="res://objects/power_up.tscn" id="12_n1bf3"]
 
 [sub_resource type="Resource" id="Resource_n3klx"]
 script = ExtResource("10_qe1hi")
@@ -81,8 +82,14 @@ position = Vector2(56, 197)
 tile_map_data = PackedByteArray("AAATAOD/AAAdABAAAAAUAOD/AAAfABAAAAAVAOD/AAAgABAAAAAWAOD/AAAdABAAAAAXAOD/AAAfABAAAAAYAOD/AAAgABAAAAAZAOD/AAAdABAAAAA=")
 tile_set = ExtResource("6_vfppi")
 
+[node name="PowerUp" parent="." instance=ExtResource("12_n1bf3")]
+unique_name_in_owner = true
+position = Vector2(793, 130)
+
 [node name="Player" parent="." instance=ExtResource("7_c81oo")]
 position = Vector2(-573, 126)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_pjr17")]
 spawns = Array[ExtResource("10_qe1hi")]([SubResource("Resource_n3klx"), SubResource("Resource_arv1q")])
+
+[connection signal="power_up" from="PowerUp" to="Player" method="_on_power_up_power_up"]

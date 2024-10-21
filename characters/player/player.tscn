@@ -1,8 +1,9 @@
-[gd_scene load_steps=147 format=3 uid="uid://nptb0bexh86l"]
+[gd_scene load_steps=154 format=3 uid="uid://nptb0bexh86l"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_knton"]
 [ext_resource type="Texture2D" uid="uid://cp1ng6rdwgimy" path="res://assets/textures/sprites/knight_player/Attack_KG_1.png" id="2_tcrjg"]
 [ext_resource type="Texture2D" uid="uid://cll6kxbnv2nav" path="res://assets/textures/objects/light_01.png" id="3_0bo2x"]
+[ext_resource type="Texture2D" uid="uid://c2glmf61ci2r5" path="res://assets/textures/sprites/knight_player/Crouching_Idle_KG_2.png" id="3_jor2q"]
 [ext_resource type="Texture2D" uid="uid://cjfbtg2hr2xoh" path="res://assets/textures/sprites/knight_player/Attack_KG_2.png" id="3_nf2oi"]
 [ext_resource type="PackedScene" uid="uid://tqy0tnapx6jf" path="res://ui/ui.tscn" id="3_rdebr"]
 [ext_resource type="PackedScene" uid="uid://bf6peb0wup3jk" path="res://utils/hitbox.tscn" id="4_axvin"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hggkeroht5y" path="res://assets/textures/sprites/knight_player/Attack_KG_4.png" id="5_bu7dq"]
 [ext_resource type="Texture2D" uid="uid://syqtunbo7ntc" path="res://assets/textures/sprites/knight_player/Dashing_KG_1.png" id="6_amjlb"]
 [ext_resource type="Texture2D" uid="uid://bi8wn0plf531f" path="res://assets/textures/sprites/knight_player/Dying_KG_1.png" id="7_l17ys"]
+[ext_resource type="AudioStream" uid="uid://82sjf1lg7u5v" path="res://characters/sliding_loopable.wav" id="8_5fh4d"]
 [ext_resource type="Texture2D" uid="uid://cf1j0mr7ato02" path="res://assets/textures/sprites/knight_player/Dying_KG_2.png" id="8_6sdci"]
 [ext_resource type="Texture2D" uid="uid://brkg0vcpjyplm" path="res://assets/textures/sprites/knight_player/Drinking_KG_1.png" id="9_s6qp6"]
 [ext_resource type="Texture2D" uid="uid://c8xrl7csjuy6w" path="res://assets/textures/sprites/knight_player/Hurt_KG_1.png" id="10_11u4q"]
@@ -53,6 +55,7 @@
 [ext_resource type="Script" path="res://characters/player/states/attack_1.gd" id="41_ypevb"]
 [ext_resource type="AudioStream" uid="uid://bousmt1s2ox7x" path="res://assets/audio/sfx/player/walking/stone_01_a.wav" id="52_1eagb"]
 [ext_resource type="AudioStream" uid="uid://m2e101chuynb" path="res://assets/audio/sfx/player/boots-leather-jump-01.wav" id="53_nrwkw"]
+[ext_resource type="Script" path="res://characters/player/states/power_up.gd" id="55_uqxqm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
 radius = 9.0
@@ -71,34 +74,19 @@ size = Vector2(100, 44)
 size = Vector2(20, 57)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_a3l5g"]
-clip_count = 1
+clip_count = 2
 clip_0/name = &"jump"
 clip_0/stream = ExtResource("53_nrwkw")
 clip_0/auto_advance = 0
+clip_1/name = &"slide"
+clip_1/stream = ExtResource("8_5fh4d")
+clip_1/auto_advance = 0
 _transitions = {
 Vector2i(-1, 0): {
 "fade_beats": 1,
 "fade_mode": 4,
 "from_time": 0,
 "to_time": 1
-},
-Vector2i(0, 1): {
-"fade_beats": 1,
-"fade_mode": 4,
-"from_time": 0,
-"to_time": 1
-},
-Vector2i(1, 0): {
-"fade_beats": 1,
-"fade_mode": 4,
-"from_time": 0,
-"to_time": 1
-},
-Vector2i(1, 1): {
-"fade_beats": 1,
-"fade_mode": 4,
-"from_time": 0,
-"to_time": 0
 }
 }
 
@@ -538,7 +526,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("37_wkfif")]
+"values": [ExtResource("3_jor2q")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1376,7 +1364,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4, 1.3, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 0.768627, 0.768627), Color(0.298039, 0.709804, 1, 0.768627), Color(0.298039, 0.709804, 1, 0.768627), Color(1, 1, 0.768627, 0.768627)]
+"values": [Color(1, 1, 0.768627, 0.768627), Color(0, 0.831373, 0.839216, 0.768627), Color(0, 0.831373, 0.839216, 0.768627), Color(1, 1, 0.768627, 0.768627)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1388,7 +1376,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1.0, 2.5, 1.0, 2.5, 1.0, 2.5, 1.0, 2.5, 1.0]
+"values": [0.5, 2.5, 1.0, 2.5, 1.0, 2.5, 1.0, 2.5, 0.5]
 }
 
 [sub_resource type="Animation" id="Animation_4xxy1"]
@@ -1931,6 +1919,9 @@ blend_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y33rk"]
 animation = &"wall_slide"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_shp36"]
+animation = &"power_up"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxpro"]
 advance_mode = 2
 
@@ -2096,6 +2087,20 @@ advance_condition = &"is_jumping"
 advance_mode = 2
 advance_condition = &"is_jumping"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pm6bx"]
+advance_mode = 2
+advance_condition = &"is_powering_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xyg2b"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a4cbr"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7w0by"]
 "states/Air Attack/node" = SubResource("AnimationNodeAnimation_pqw3e")
 "states/Air Attack/position" = Vector2(971, 366)
@@ -2117,8 +2122,10 @@ states/Walk/node = ExtResource("41_gw2pg")
 states/Walk/position = Vector2(971, 47)
 "states/Wall Slide/node" = SubResource("AnimationNodeAnimation_y33rk")
 "states/Wall Slide/position" = Vector2(379, 194)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_lxpro"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_doaxg"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nhoxt"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_mkxw3"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_n1253"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_8o555"), "Walk", "Dash", SubResource("AnimationNodeStateMachineTransition_bnxui"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_61r1j"), "Fall", "Dash", SubResource("AnimationNodeStateMachineTransition_uno0k"), "Dash", "Fall", SubResource("AnimationNodeStateMachineTransition_dq7y6"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_aq1kp"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_slvn6"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_axrcm"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_0nojw"), "Fall", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_twtdd"), "Wall Slide", "Idle", SubResource("AnimationNodeStateMachineTransition_q85lj"), "Wall Slide", "Walk", SubResource("AnimationNodeStateMachineTransition_kjxa2"), "Wall Slide", "Fall", SubResource("AnimationNodeStateMachineTransition_lsyah"), "Jump", "Dash", SubResource("AnimationNodeStateMachineTransition_1q83m"), "Jump", "Air Attack", SubResource("AnimationNodeStateMachineTransition_ksdgc"), "Dash", "Air Attack", SubResource("AnimationNodeStateMachineTransition_buwae"), "Fall", "Air Attack", SubResource("AnimationNodeStateMachineTransition_gepma"), "Air Attack", "Fall", SubResource("AnimationNodeStateMachineTransition_iwrka"), "Air Attack", "Land", SubResource("AnimationNodeStateMachineTransition_1qeu2"), "Air Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_d0jxq"), "Air Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_c2dfh"), "Air Attack", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_4dxmr"), "Wall Slide", "Jump", SubResource("AnimationNodeStateMachineTransition_jay8p"), "Dash", "Walk", SubResource("AnimationNodeStateMachineTransition_3xwsj"), "Land", "Fall", SubResource("AnimationNodeStateMachineTransition_o78dq"), "Idle", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_dbvwa"), "Combo Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_33jv6"), "Dash", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_ygrld"), "Walk", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_xxpmk"), "Combo Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_568mq"), "Dash", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_b7wgq"), "Air Attack", "Jump", SubResource("AnimationNodeStateMachineTransition_83e80"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_u6jmw"), "Combo Attack", "Jump", SubResource("AnimationNodeStateMachineTransition_8bquk")]
-graph_offset = Vector2(17, -114)
+states/power_up/node = SubResource("AnimationNodeAnimation_shp36")
+states/power_up/position = Vector2(971, -63)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_lxpro"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_doaxg"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_nhoxt"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_mkxw3"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_n1253"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_8o555"), "Walk", "Dash", SubResource("AnimationNodeStateMachineTransition_bnxui"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_61r1j"), "Fall", "Dash", SubResource("AnimationNodeStateMachineTransition_uno0k"), "Dash", "Fall", SubResource("AnimationNodeStateMachineTransition_dq7y6"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_aq1kp"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_slvn6"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_axrcm"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_0nojw"), "Fall", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_twtdd"), "Wall Slide", "Idle", SubResource("AnimationNodeStateMachineTransition_q85lj"), "Wall Slide", "Walk", SubResource("AnimationNodeStateMachineTransition_kjxa2"), "Wall Slide", "Fall", SubResource("AnimationNodeStateMachineTransition_lsyah"), "Jump", "Dash", SubResource("AnimationNodeStateMachineTransition_1q83m"), "Jump", "Air Attack", SubResource("AnimationNodeStateMachineTransition_ksdgc"), "Dash", "Air Attack", SubResource("AnimationNodeStateMachineTransition_buwae"), "Fall", "Air Attack", SubResource("AnimationNodeStateMachineTransition_gepma"), "Air Attack", "Fall", SubResource("AnimationNodeStateMachineTransition_iwrka"), "Air Attack", "Land", SubResource("AnimationNodeStateMachineTransition_1qeu2"), "Air Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_d0jxq"), "Air Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_c2dfh"), "Air Attack", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_4dxmr"), "Wall Slide", "Jump", SubResource("AnimationNodeStateMachineTransition_jay8p"), "Dash", "Walk", SubResource("AnimationNodeStateMachineTransition_3xwsj"), "Land", "Fall", SubResource("AnimationNodeStateMachineTransition_o78dq"), "Idle", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_dbvwa"), "Combo Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_33jv6"), "Dash", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_ygrld"), "Walk", "Combo Attack", SubResource("AnimationNodeStateMachineTransition_xxpmk"), "Combo Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_568mq"), "Dash", "Wall Slide", SubResource("AnimationNodeStateMachineTransition_b7wgq"), "Air Attack", "Jump", SubResource("AnimationNodeStateMachineTransition_83e80"), "Dash", "Jump", SubResource("AnimationNodeStateMachineTransition_u6jmw"), "Combo Attack", "Jump", SubResource("AnimationNodeStateMachineTransition_8bquk"), "Walk", "power_up", SubResource("AnimationNodeStateMachineTransition_pm6bx"), "power_up", "Idle", SubResource("AnimationNodeStateMachineTransition_xyg2b"), "power_up", "Walk", SubResource("AnimationNodeStateMachineTransition_a4cbr")]
+graph_offset = Vector2(-123, -148)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -2192,13 +2199,13 @@ shape = SubResource("RectangleShape2D_t008i")
 
 [node name="SfxOneShot" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamInteractive_a3l5g")
+volume_db = -10.0
 max_polyphony = 2
-bus = &"Sfx"
 
 [node name="SfxWalk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("52_1eagb")
+volume_db = -10.0
 max_polyphony = 4
-bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -2215,6 +2222,7 @@ parameters/conditions/is_dashing = false
 parameters/conditions/is_falling = false
 parameters/conditions/is_jumping = false
 parameters/conditions/is_landed = false
+parameters/conditions/is_powering_up = false
 parameters/conditions/is_sliding = false
 parameters/conditions/is_walking = false
 "parameters/Combo Attack/blend_position" = -1.0
@@ -2278,6 +2286,9 @@ script = ExtResource("41_ypevb")
 [node name="Blocking" type="Node" parent="StateMachine"]
 
 [node name="Talking" type="Node" parent="StateMachine"]
+
+[node name="PowerUp" type="Node" parent="StateMachine"]
+script = ExtResource("55_uqxqm")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]
