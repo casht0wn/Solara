@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 # Settings
 @export_category("Movement Settings")
 @export_group("Speed Settings")
-@export var speed: float = 200.0
+@export var run_speed: float = 200.0
 @export var crouch_speed: float = 100.0
 @export var wall_slide_speed: float = 100.0
 @export var dash_speed: float = 300.0
@@ -12,10 +12,11 @@ class_name Player extends CharacterBody2D
 @export var friction: float = 150.0
 @export var air_drag: float = 0.9
 @export_group("Jump Adjustments")
-@export var jump_impulse: float = 400.0
+@export var jump_power: float = 400.0
 @export var coyote_time: float = 0.1
 @export var jump_buffer_time: float = 0.2
 @export var wall_jump_force: float = 50.0
+@export var armed_debuff_multiplier: float = 0.85
 @export_group("Dash Adjustments")
 @export var dash_duration: float = 0.2
 @export var dash_cooldown: float = 0.5
@@ -23,8 +24,11 @@ class_name Player extends CharacterBody2D
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Variables
+var speed: float = 0.0
+var jump_impulse: float = 400.0
 var dash_time: float = 0.0
 var dash_cooldown_timer: float = 0.0
+
 var max_jumps: int = 2
 var jump_count: int = 0
 

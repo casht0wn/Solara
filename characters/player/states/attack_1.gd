@@ -2,9 +2,8 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.armed = true
-	var attack_in_combo = player.animation_tree.get("parameters/Combo Attack/blend_position")
 	player.animation_tree.set("parameters/conditions/is_attacking", true)
-	player.animation_tree.set("parameters/land/blend_position", player.armed)
+	var attack_in_combo = player.animation_tree.get("parameters/Combo Attack/blend_position")
 	player.animation_tree.set("parameters/Combo Attack/blend_position", attack_in_combo+1)	# Second attack in combo
 	
 

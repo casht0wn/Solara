@@ -2,6 +2,7 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.animation_tree.set("parameters/conditions/is_dashing", true)
+	player.armed = true
 	player.dash_time = player.dash_duration
 	if not player.is_on_floor():
 		player.dash_cooldown_timer = player.dash_cooldown

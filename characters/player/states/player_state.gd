@@ -17,6 +17,8 @@ func _ready() -> void:
 	player = owner as Player
 	assert(player != null, "The PlayerState state type must be used only in the player scene. It needs the owner to be a Player node.")
 	player.animation_tree.active = true
+	player.speed = player.run_speed
+	player.jump_impulse = player.jump_power
 	player.power_up.connect("power_up", Callable(self, "_on_power_up_power_up"))
 
 # Apply Gravity
@@ -46,13 +48,32 @@ func apply_air_drag() -> void:
 # Equip or Unequip Weapons
 func toggle_weapon() -> void:
 	player.armed = !player.armed
-
-func handle_crouch() -> void:
-	player.crouched = Input.is_action_pressed("crouch")
+	if player.armed:
+		player.speed = player.run_speed * player.armed_debuff_multiplier
+		player.jump_impulse = player.jump_power * player.armed_debuff_multiplier
+	else:
+		player.speed = player.run_speed
+		player.jump_impulse = player.jump_power
 	# Reset blend positions
 	player.animation_tree.set("parameters/Idle/blend_position", Vector2(player.armed, player.crouched))
 	player.animation_tree.set("parameters/Walk/blend_position", Vector2(player.armed, player.crouched))
+	player.animation_tree.set("parameters/Jump/blend_position", player.armed)
+	player.animation_tree.set("parameters/Fall/blend_position", player.armed)
+	player.animation_tree.set("parameters/Land/blend_position", player.armed)
 
+func handle_crouch() -> void:
+	player.crouched = Input.is_action_pressed("crouch")
+	if player.crouched:
+		player.speed = player.crouch_speed
+	else:
+		player.speed = player.run_speed
+	# Reset blend positions
+	player.animation_tree.set("parameters/Idle/blend_position", Vector2(player.armed, player.crouched))
+	player.animation_tree.set("parameters/Walk/blend_position", Vector2(player.armed, player.crouched))
+	player.animation_tree.set("parameters/Jump/blend_position", player.armed)
+	player.animation_tree.set("parameters/Fall/blend_position", player.armed)
+	player.animation_tree.set("parameters/Land/blend_position", player.armed)
+	
 
 # Player Damaged
 func _on_player_hit(damage_amount):
