@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ls6hw8dfe68"]
+
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/credits/credits.tscn" id="1_vcni4"]
+[ext_resource type="Script" path="res://scenes/credits/credits.gd" id="2_ayii4"]
+
+[node name="Credits" instance=ExtResource("1_vcni4")]
+script = ExtResource("2_ayii4")
+attribution_file_path = "res://ATTRIBUTION.md"
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+text = "[center][font_size=48]Collaborators[/font_size]
+
+[font_size=32]Developers[/font_size]
+casht0wn
+
+
+[font_size=48]Sourced / Unaffiliated[/font_size]
+[font_size=32]Sprites & Animations[/font_size]
+[font_size=24]Solara (Player Character)[/font_size]
+Author: JumpButton  
+Source: [url=https://jumpbutton.itch.io/]jumpbutton.itch.io[/url]  
+
+[font_size=32]Tilesets and Backgrounds[/font_size]
+[font_size=24]Level Environments[/font_size]
+Author: szadzi art  
+Source: [url=https://szadiart.itch.io/]szadiart.itch.io[/url]  
+
+[font_size=32]Additional VFX[/font_size]
+[font_size=24]Particle Effects[/font_size]
+Author: Raphael Hatencia
+Source: [url=https://ragnapixel.itch.io/]ragnapixel.itch.io[/url]
+License: [url=https://creativecommons.org/licenses/by/4.0/]CC-BY 4.0[/url]
+
+[font_size=32]Music[/font_size]
+[font_size=24]Background & Menu Music[/font_size]
+Author: Of Far Different Nature 
+Source: [url=https://fardifferent.carrd.co/]fardifferent.carrd.co[/url]  
+License: [url=https://creativecommons.org/licenses/by/4.0/]CC-BY 4.0[/url]
+
+[font_size=32]Sound Effects[/font_size]
+[font_size=24]UI SFX[/font_size]
+Author: Kenney
+Source: [url=https://kenney.nl/]kenney.nl[/url]  
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0[/url]
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Git[/font_size]
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Godot Game Template[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [MIT License](LICE
+[/center]"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc37235kj4384"]
+
+[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/ui_sound_controller.gd" id="1_dmagn"]
+[ext_resource type="AudioStream" uid="uid://cu6w4oyayu8f2" path="res://assets/audio/sfx/ui_sounds/select_001.ogg" id="2_k8jh0"]
+[ext_resource type="AudioStream" uid="uid://dq428nn83ijch" path="res://assets/audio/sfx/ui_sounds/click-a.ogg" id="3_athdl"]
+[ext_resource type="AudioStream" uid="uid://bofgmv3p4t3af" path="res://assets/audio/sfx/ui_sounds/tap-a.ogg" id="4_xbrer"]
+[ext_resource type="AudioStream" uid="uid://dsgnj3x3wya4n" path="res://assets/audio/sfx/ui_sounds/scroll_003.ogg" id="5_8xpu7"]
+[ext_resource type="AudioStream" uid="uid://cj7pn3xpetray" path="res://assets/audio/sfx/ui_sounds/drop_001.ogg" id="6_nl56h"]
+[ext_resource type="AudioStream" uid="uid://bto2drv36csby" path="res://assets/audio/sfx/ui_sounds/confirmation_002.ogg" id="7_uxdnh"]
+[ext_resource type="AudioStream" uid="uid://bwun6tlbepfep" path="res://assets/audio/sfx/ui_sounds/error_005.ogg" id="8_iut47"]
+
+[node name="ProjectUISoundController" type="Node"]
+script = ExtResource("1_dmagn")
+button_hovered = ExtResource("2_k8jh0")
+button_pressed = ExtResource("3_athdl")
+tab_hovered = ExtResource("2_k8jh0")
+tab_selected = ExtResource("4_xbrer")
+slider_drag_started = ExtResource("5_8xpu7")
+slider_drag_ended = ExtResource("6_nl56h")
+line_focused = ExtResource("2_k8jh0")
+line_text_submitted = ExtResource("7_uxdnh")
+line_text_change_rejected = ExtResource("8_iut47")

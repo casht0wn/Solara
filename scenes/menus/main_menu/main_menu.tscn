@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlff7f3qenqbn"]
+
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_ai2nc"]
+[ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu.gd" id="2_v75x3"]
+[ext_resource type="PackedScene" uid="uid://h4wckw40c0d2" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_4o0qs"]
+[ext_resource type="PackedScene" uid="uid://d4ls6hw8dfe68" path="res://scenes/credits/credits.tscn" id="4_fxdjs"]
+[ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://assets/fonts/MorrisRomanBlack.ttf" id="5_lm0sf"]
+
+[node name="MainMenu" instance=ExtResource("1_ai2nc")]
+script = ExtResource("2_v75x3")
+game_scene_path = "res://scenes/game_scene/game_ui.tscn"
+options_packed_scene = ExtResource("3_4o0qs")
+credits_packed_scene = ExtResource("4_fxdjs")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+theme_override_fonts/font = ExtResource("5_lm0sf")
+theme_override_font_sizes/font_size = 96

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3bn45vja1ejl"]
+
+[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/extras/scenes/opening/opening.tscn" id="1_l1iab"]
+[ext_resource type="Script" path="res://scenes/opening/opening.gd" id="2_j6k77"]
+
+[node name="Opening" instance=ExtResource("1_l1iab")]
+script = ExtResource("2_j6k77")
+next_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
