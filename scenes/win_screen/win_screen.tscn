@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6npsf6g5cbh4"]
+[gd_scene load_steps=4 format=3 uid="uid://b6npsf6g5cbh4"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/extras/scenes/win_screen/win_screen.tscn" id="1_iny1j"]
+[ext_resource type="PackedScene" uid="uid://dt5ses55itjy4" path="res://addons/maaacks_game_template/extras/scenes/win_screen/win_screen.tscn" id="1_iny1j"]
 [ext_resource type="Script" path="res://scenes/win_screen/win_screen.gd" id="2_mk1ck"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="3_wwupu"]
 
 [node name="WinScreen" instance=ExtResource("1_iny1j")]
 script = ExtResource("2_mk1ck")
 next_scene = "res://scenes/end_credits/end_credits.tscn"
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
+
+[node name="PanelContainer" parent="." index="3"]
+theme = ExtResource("3_wwupu")

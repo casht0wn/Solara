@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnefd36fcyrbf"]
+[gd_scene load_steps=5 format=3 uid="uid://cnefd36fcyrbf"]
 
 [ext_resource type="Script" path="res://scenes/menus/options_menu/game/game_options_menu.gd" id="1_0wo7y"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="1_kvk10"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="2_p77mc"]
-[ext_resource type="PackedScene" path="res://scenes/menus/options_menu/game/reset_game_control/reset_game_control.tscn" id="3_ykrvl"]
+[ext_resource type="PackedScene" uid="uid://c8qg6gq4qpe22" path="res://scenes/menus/options_menu/game/reset_game_control/reset_game_control.tscn" id="3_ykrvl"]
 
 [node name="Game" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("1_kvk10")
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_bottom = 24
 script = ExtResource("1_0wo7y")

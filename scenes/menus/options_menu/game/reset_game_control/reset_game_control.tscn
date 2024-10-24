@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8qg6gq4qpe22"]
+[gd_scene load_steps=3 format=3 uid="uid://c8qg6gq4qpe22"]
 
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="1_bvpoo"]
 [ext_resource type="Script" path="res://scenes/menus/options_menu/game/reset_game_control/reset_game_control.gd" id="1_i2ba2"]
 
 [node name="ResetGameControl" type="HBoxContainer"]
@@ -7,6 +8,7 @@ custom_minimum_size = Vector2(0, 32)
 offset_top = 210.0
 offset_right = 305.0
 offset_bottom = 242.0
+theme = ExtResource("1_bvpoo")
 script = ExtResource("1_i2ba2")
 
 [node name="ResetLabel" type="Label" parent="."]

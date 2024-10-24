@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4ls6hw8dfe68"]
+[gd_scene load_steps=4 format=3 uid="uid://d4ls6hw8dfe68"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/credits/credits.tscn" id="1_vcni4"]
 [ext_resource type="Script" path="res://scenes/credits/credits.gd" id="2_ayii4"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="2_fpwtv"]
 
 [node name="Credits" instance=ExtResource("1_vcni4")]
+theme = ExtResource("2_fpwtv")
 script = ExtResource("2_ayii4")
 attribution_file_path = "res://ATTRIBUTION.md"
 

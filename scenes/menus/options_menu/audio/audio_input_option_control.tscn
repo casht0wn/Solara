@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://btx3d3b0hfxl5"]
+[gd_scene load_steps=4 format=3 uid="uid://btx3d3b0hfxl5"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/option_control/list_option_control.tscn" id="1_syy3i"]
+[ext_resource type="PackedScene" uid="uid://b6bl3n5mp3m1e" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/option_control/list_option_control.tscn" id="1_syy3i"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="2_6g48i"]
 [ext_resource type="Script" path="res://scenes/menus/options_menu/audio/audio_input_option_control.gd" id="2_slwjp"]
 
 [node name="AudioInputOptionControl" instance=ExtResource("1_syy3i")]
+theme = ExtResource("2_6g48i")
 script = ExtResource("2_slwjp")
 option_name = "Input Device"
 option_section = 2
 key = "InputDevice"
 section = "AudioSettings"
 property_type = 4
-default_value = "Default"
 
 [node name="OptionLabel" parent="." index="0"]
 text = "Input Device :"

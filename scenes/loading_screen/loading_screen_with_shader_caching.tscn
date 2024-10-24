@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doluhavt3owum"]
+[gd_scene load_steps=4 format=3 uid="uid://doluhavt3owum"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_s5i01"]
+[ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_s5i01"]
 [ext_resource type="Script" path="res://scenes/loading_screen/loading_screen_with_shader_caching.gd" id="2_peiak"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="3_g4m6k"]
 
 [node name="LoadingScreen" instance=ExtResource("1_s5i01")]
 script = ExtResource("2_peiak")
@@ -10,6 +11,9 @@ _cache_shaders_scene = "res://scenes/GameScene/GameUI.tscn"
 _matching_extensions = Array[String]([".tres", ".material", ".res"])
 _ignore_subfolders = Array[String]([".", ".."])
 _shader_delay_timer = 0.1
+
+[node name="Control" parent="." index="0"]
+theme = ExtResource("3_g4m6k")
 
 [node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="2"]
 unique_name_in_owner = true

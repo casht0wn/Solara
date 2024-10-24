@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="1_0nhut"]
 [ext_resource type="Texture2D" uid="uid://2cskmtqctbr3" path="res://levels/level1/textures/SET3_background1.png" id="2_6tief"]
-[ext_resource type="AudioStream" uid="uid://djmcptug3x" path="res://assets/audio/music/Of Far Different Nature - Act and Contemplate (CC-BY).ogg" id="2_7t06t"]
+[ext_resource type="AudioStream" uid="uid://bq726ux4xrihj" path="res://assets/audio/music/Of Far Different Nature - Mystic Quest Dubstep (CC-BY).ogg" id="2_hl8ll"]
 [ext_resource type="Texture2D" uid="uid://boq85b71mhcdx" path="res://levels/level1/textures/SET3_background2.png" id="3_soabs"]
 [ext_resource type="Texture2D" uid="uid://cbls8dbghcxnw" path="res://levels/level1/textures/SET3_background3.png" id="4_c5qmp"]
 [ext_resource type="Texture2D" uid="uid://be0da2r8dgypt" path="res://levels/level1/textures/SET3_background4.png" id="5_js468"]
@@ -27,7 +27,7 @@ position = Vector2(700, 155)
 [node name="Level1" type="Node2D"]
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("1_0nhut")]
-stream = ExtResource("2_7t06t")
+stream = ExtResource("2_hl8ll")
 volume_db = -10.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

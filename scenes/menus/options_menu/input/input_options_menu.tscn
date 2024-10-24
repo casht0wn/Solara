@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1idufpscrtmr"]
+[gd_scene load_steps=4 format=3 uid="uid://b1idufpscrtmr"]
 
 [ext_resource type="PackedScene" uid="uid://dp3rgqaehb3xu" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/input/input_options_menu.tscn" id="1_t6fxb"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="2_g0esf"]
 [ext_resource type="Script" path="res://scenes/menus/options_menu/input/input_options_menu.gd" id="2_o5aug"]
 
 [node name="Controls" instance=ExtResource("1_t6fxb")]
+theme = ExtResource("2_g0esf")
 script = ExtResource("2_o5aug")

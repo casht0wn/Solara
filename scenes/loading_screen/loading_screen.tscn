@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnnobptr4cqxh"]
+[gd_scene load_steps=4 format=3 uid="uid://cnnobptr4cqxh"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_rglms"]
+[ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_rglms"]
 [ext_resource type="Script" path="res://scenes/loading_screen/loading_screen.gd" id="2_lm1fh"]
+[ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="3_ood3s"]
 
 [node name="LoadingScreen" instance=ExtResource("1_rglms")]
 script = ExtResource("2_lm1fh")
+
+[node name="Control" parent="." index="0"]
+theme = ExtResource("3_ood3s")
+
+[node name="Title" parent="Control/VBoxContainer" index="0"]
+theme_override_constants/outline_size = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlff7f3qenqbn" path="res://scenes/menus/main_menu/main_menu.tscn" id="1_158oq"]
 [ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_xbkcc"]
-[ext_resource type="AudioStream" uid="uid://bcq83k0o40d3" path="res://assets/audio/music/Of Far Different Nature - 8-Bit Hero Quest (CC-BY).ogg" id="3_ttjvm"]
+[ext_resource type="AudioStream" uid="uid://fjf01x1n7lep" path="res://assets/audio/music/Of Far Different Nature - Departing At Dawn (CC-BY).ogg" id="3_3ovc3"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -362,18 +362,14 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundMusicPlayer" parent="." index="3"]
-stream = ExtResource("3_ttjvm")
+stream = ExtResource("3_3ovc3")
 volume_db = -10.0
-bus = &"Master"
 
 [node name="VersionContainer" parent="VersionMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
-
-[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "Solara"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
