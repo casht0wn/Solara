@@ -19,7 +19,7 @@ Source: [szadiart.itch.io](https://szadiart.itch.io/)
 ### Additional VFX
 #### Particle Effects
 Author: Raphael Hatencia
-Source: [ragnapixel.itch.io](https://ragnapixel.itch.io/)
+Source: [ragnapixel.itch.io](https://ragnapixel.itch.io/)  
 License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### Music
@@ -48,4 +48,4 @@ License: [GNU General Public License version 2](https://opensource.org/licenses/
 #### Godot Game Template
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
-License: [MIT License](LICE
+License: [MIT License](LICENSE.txt)  
