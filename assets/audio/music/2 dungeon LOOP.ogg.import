@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://748v62mmec54"
+path="res://.godot/imported/2 dungeon LOOP.ogg-15c818c05de84875ee2e50cc14ba60d3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/2 dungeon LOOP.ogg"
+dest_files=["res://.godot/imported/2 dungeon LOOP.ogg-15c818c05de84875ee2e50cc14ba60d3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

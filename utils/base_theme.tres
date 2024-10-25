@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=40 format=3 uid="uid://c6jlnrw86br8x"]
+[gd_resource type="Theme" load_steps=43 format=3 uid="uid://c6jlnrw86br8x"]
 
 [ext_resource type="Texture2D" uid="uid://4kvv0ecla2q2" path="res://assets/textures/ui/Panel/panel-001.png" id="1_8lkh4"]
 [ext_resource type="Texture2D" uid="uid://k4mo1rus32sb" path="res://assets/textures/ui/Transparent border/panel-transparent-border-009.png" id="2_74j7h"]
@@ -7,14 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://b3alef8sawycb" path="res://assets/textures/ui/Transparent border/panel-transparent-border-028.png" id="7_m8ibq"]
 [ext_resource type="Texture2D" uid="uid://b0wq2gokxjlla" path="res://assets/textures/ui/Panel/panel-031.png" id="8_66bue"]
 [ext_resource type="Texture2D" uid="uid://bf34xhhquh2n5" path="res://assets/textures/ui/Panel/panel-000.png" id="9_guuit"]
-[ext_resource type="Texture2D" uid="uid://yjbaxm3c125x" path="res://assets/textures/ui/Panel/panel-025.png" id="10_ryj1f"]
+[ext_resource type="Texture2D" uid="uid://bu08w575qpvxj" path="res://assets/textures/ui/Panel/panel-026.png" id="10_1g63t"]
 [ext_resource type="Texture2D" uid="uid://txe3vq3yrefq" path="res://assets/textures/ui/Transparent center/panel-transparent-center-026.png" id="12_joldr"]
+[ext_resource type="Texture2D" uid="uid://cm3ct7v3vo4b7" path="res://assets/textures/ui/Panel/panel-010.png" id="12_v7xnx"]
 [ext_resource type="Texture2D" uid="uid://3x65nuwnr4r0" path="res://assets/textures/ui/Panel/panel-015.png" id="13_wktoc"]
 [ext_resource type="Texture2D" uid="uid://bvmfs0fqgits8" path="res://assets/textures/ui/Panel/panel-021.png" id="14_6s7nv"]
 [ext_resource type="Texture2D" uid="uid://cbb7jnuw6w386" path="res://assets/textures/ui/Transparent border/panel-transparent-border-015.png" id="14_10wkh"]
 [ext_resource type="FontFile" uid="uid://b2tl0gn0r21qs" path="res://assets/fonts/alagard.ttf" id="15_1n5nt"]
 [ext_resource type="Texture2D" uid="uid://bdhygh47y6dqo" path="res://assets/textures/ui/PNG/Extra/Default/input_rectangle.png" id="17_m6bj8"]
 [ext_resource type="Texture2D" uid="uid://ba41xt57llcys" path="res://assets/textures/ui/PNG/Extra/Default/input_outline_rectangle.png" id="18_iwkpc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjarw"]
+texture = ExtResource("12_joldr")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kcxh5"]
 texture = ExtResource("1_8lkh4")
@@ -110,20 +118,32 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cv2g"]
-texture = ExtResource("10_ryj1f")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4agi1"]
+texture = ExtResource("10_1g63t")
 texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
 texture_margin_bottom = 24.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cv2g"]
+texture = ExtResource("13_wktoc")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ct86s"]
-texture = ExtResource("10_ryj1f")
-texture_margin_left = 24.0
-texture_margin_top = 24.0
-texture_margin_right = 24.0
-texture_margin_bottom = 24.0
+texture = ExtResource("12_v7xnx")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 axis_stretch_horizontal = 2
 modulate_color = Color(0.529067, 0.529067, 0.529067, 1)
 
@@ -188,6 +208,7 @@ texture_margin_bottom = 20.0
 
 [resource]
 default_font = ExtResource("15_1n5nt")
+AcceptDialog/styles/panel = SubResource("StyleBoxTexture_rjarw")
 Button/colors/font_color = Color(0.12549, 0.12549, 0.12549, 1)
 Button/colors/font_disabled_color = Color(0.125911, 0.125911, 0.125911, 0.5)
 Button/colors/font_focus_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -213,6 +234,7 @@ MenuButton/styles/pressed = SubResource("StyleBoxTexture_igpad")
 Panel/styles/panel = SubResource("StyleBoxTexture_ci7xv")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_5d7q2")
 PopupMenu/styles/panel = SubResource("StyleBoxTexture_tyujh")
+PopupPanel/styles/panel = SubResource("StyleBoxTexture_4agi1")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_7cv2g")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_ct86s")
 TabContainer/colors/font_disabled_color = Color(0.12549, 0.12549, 0.12549, 0.501961)

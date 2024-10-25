@@ -2268,10 +2268,14 @@ script = ExtResource("1_knton")
 dash_duration = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 limit_left = -1280
-limit_bottom = 1440
+limit_bottom = 1700
 drag_horizontal_enabled = true
+drag_left_margin = 0.25
+drag_top_margin = 0.25
+drag_right_margin = 0.25
+drag_bottom_margin = 0.25
 editor_draw_drag_margin = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
@@ -2285,7 +2289,6 @@ color = Color(1, 1, 0.768627, 0.768627)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.768627)
 texture = ExtResource("3_0bo2x")
-texture_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("12_1ofsf")

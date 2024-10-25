@@ -15,3 +15,12 @@ theme = ExtResource("4_lbl8s")
 
 [node name="SubMenuContainer" parent="." index="4"]
 theme = ExtResource("4_lbl8s")
+
+[node name="ConfirmRestart" parent="." index="5"]
+theme = ExtResource("4_lbl8s")
+
+[node name="ConfirmMainMenu" parent="." index="6"]
+theme = ExtResource("4_lbl8s")
+
+[node name="ConfirmExit" parent="." index="7"]
+theme = ExtResource("4_lbl8s")

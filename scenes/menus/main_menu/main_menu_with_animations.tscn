@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlff7f3qenqbn" path="res://scenes/menus/main_menu/main_menu.tscn" id="1_158oq"]
 [ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_xbkcc"]
-[ext_resource type="AudioStream" uid="uid://fjf01x1n7lep" path="res://assets/audio/music/Of Far Different Nature - Departing At Dawn (CC-BY).ogg" id="3_3ovc3"]
+[ext_resource type="AudioStream" uid="uid://6utqb2hux7nv" path="res://assets/audio/music/1 titles LOOP.ogg" id="3_0it6k"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -362,7 +362,7 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundMusicPlayer" parent="." index="3"]
-stream = ExtResource("3_3ovc3")
+stream = ExtResource("3_0it6k")
 volume_db = -10.0
 
 [node name="VersionContainer" parent="VersionMargin" index="0"]

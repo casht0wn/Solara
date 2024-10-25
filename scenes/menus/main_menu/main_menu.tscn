@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlff7f3qenqbn"]
+[gd_scene load_steps=10 format=3 uid="uid://dlff7f3qenqbn"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_ai2nc"]
 [ext_resource type="Theme" uid="uid://c6jlnrw86br8x" path="res://utils/base_theme.tres" id="2_b15q7"]
@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://h4wckw40c0d2" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_4o0qs"]
 [ext_resource type="PackedScene" uid="uid://d4ls6hw8dfe68" path="res://scenes/credits/credits.tscn" id="4_fxdjs"]
 [ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://assets/fonts/MorrisRomanBlack.ttf" id="5_lm0sf"]
+[ext_resource type="Texture2D" uid="uid://s5noecc2nxix" path="res://assets/images/solara_title_hd.jpeg" id="6_35kul"]
+[ext_resource type="Texture2D" uid="uid://bc715l1tmkywc" path="res://assets/textures/ui/Transparent center/panel-transparent-center-031.png" id="8_a1l2m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo32q"]
+texture = ExtResource("8_a1l2m")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+expand_margin_top = 12.0
+modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
 
 [node name="MainMenu" instance=ExtResource("1_ai2nc")]
 theme = ExtResource("2_b15q7")
@@ -14,6 +25,21 @@ game_scene_path = "res://scenes/game_scene/game_ui.tscn"
 options_packed_scene = ExtResource("3_4o0qs")
 credits_packed_scene = ExtResource("4_fxdjs")
 
+[node name="BackgroundTextureRect" parent="." index="2"]
+texture = ExtResource("6_35kul")
+stretch_mode = 6
+
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.5
+offset_right = 143.5
+offset_bottom = 131.0
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("5_lm0sf")
 theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxTexture_eo32q")
+
+[node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
+visible = false

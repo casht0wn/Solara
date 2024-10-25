@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://h4wckw40c0d2"]
 
 [ext_resource type="PackedScene" uid="uid://cudh4xyy21h3a" path="res://scenes/menus/options_menu/master_options_menu.tscn" id="1_uj7q4"]
-[ext_resource type="PackedScene" uid="uid://diifyik6oqt5m" path="res://scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_oys2w"]
+[ext_resource type="PackedScene" uid="uid://b1idufpscrtmr" path="res://scenes/menus/options_menu/input/input_options_menu.tscn" id="2_gsywi"]
 [ext_resource type="PackedScene" uid="uid://jlsia7pr5bae" path="res://scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_53f12"]
 [ext_resource type="PackedScene" uid="uid://b51njmhatjc40" path="res://scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_7me74"]
 [ext_resource type="PackedScene" uid="uid://cnefd36fcyrbf" path="res://scenes/menus/options_menu/game/game_options_menu.tscn" id="5_yx8e3"]
@@ -11,9 +11,8 @@
 [node name="TabContainer" parent="." index="0"]
 current_tab = 0
 
-[node name="Controls" parent="TabContainer" index="1" instance=ExtResource("2_oys2w")]
+[node name="Controls" parent="TabContainer" index="1" instance=ExtResource("2_gsywi")]
 layout_mode = 2
-show_all_actions = true
 metadata/_tab_index = 0
 
 [node name="Audio" parent="TabContainer" index="2" instance=ExtResource("3_53f12")]
