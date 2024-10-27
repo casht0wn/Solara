@@ -7,7 +7,8 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	crab.animation_player.play("walk")
 	crab.patrol_time = randf_range(5.0, 10.0)
 	crab.patrol_timer = crab.patrol_time
-	
+	crab.connect("take_damage", Callable(self._on_damage))
+
 func physics_update(delta: float) -> void:
 	crab.patrol_timer -= delta
 	direction = avoid_falling(direction)
@@ -20,3 +21,6 @@ func physics_update(delta: float) -> void:
 		finished.emit(CHASE)
 	elif crab.patrol_timer <= 0:
 		finished.emit(IDLE)
+
+func _on_damage(amount: int, angle: Vector2, knock: float):
+	finished.emit(HURT, {"amount": amount, "angle": angle, "knock": knock})

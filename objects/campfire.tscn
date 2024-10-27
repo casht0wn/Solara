@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://8h2veouj7bwn"]
+
+[ext_resource type="Script" path="res://objects/fire_light.gd" id="1_tndnr"]
+[ext_resource type="Texture2D" uid="uid://cll6kxbnv2nav" path="res://assets/textures/objects/light_01.png" id="3_4o758"]
+[ext_resource type="Texture2D" uid="uid://bhjrnp0tjjgk7" path="res://assets/textures/objects/campfire-sheet.png" id="3_5w4na"]
+[ext_resource type="Texture2D" uid="uid://bhbwfxc1jgjl6" path="res://assets/textures/objects/smoke_03.png" id="4_krfr4"]
+[ext_resource type="Texture2D" uid="uid://0g1mrq5xsu0h" path="res://assets/textures/objects/circle_05.png" id="5_alt3l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vj6p5"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ocpku"]
+noise = SubResource("FastNoiseLite_vj6p5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ubmq"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftto7"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufe0q"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unr3j"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi0ba"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbbiv"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjm8"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5kc7"]
+atlas = ExtResource("3_5w4na")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v23or"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ubmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftto7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufe0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unr3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi0ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbbiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfjm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5kc7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Curve" id="Curve_5n0ei"]
+max_value = 0.1
+_data = [Vector2(0, 0.03), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_h2qwr"]
+offsets = PackedFloat32Array(0, 0.0724638, 0.844203, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.230315, 0.230315, 0.230315, 1, 0.915816, 0.915816, 0.915816, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_8snj0"]
+max_value = 0.1
+_data = [Vector2(0, 0.005), 0.0, 0.0, 0, 0, Vector2(1, 0.001), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hxmjf"]
+offsets = PackedFloat32Array(0, 0.0590278, 0.21875, 0.427083, 0.652778, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0.6, 0.266667, 1, 0.904951, 0, 0.0341721, 1, 1, 1, 1, 0)
+
+[node name="Campfire" type="Node2D"]
+script = ExtResource("1_tndnr")
+noise = SubResource("NoiseTexture2D_ocpku")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v23or")
+autoplay = "default"
+frame_progress = 0.137642
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 12)
+color = Color(0.968627, 0.47451, 0, 0.713726)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.768627)
+texture = ExtResource("3_4o758")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+amount = 4
+explosiveness = 0.25
+texture = ExtResource("4_krfr4")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+tangential_accel_min = 25.0
+tangential_accel_max = 25.0
+damping_min = 30.0
+damping_max = 50.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_5n0ei")
+color_ramp = SubResource("Gradient_h2qwr")
+
+[node name="Embers" type="CPUParticles2D" parent="."]
+amount = 12
+lifetime = 1.5
+explosiveness = 0.25
+texture = ExtResource("5_alt3l")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+angular_velocity_min = -35.0
+angular_velocity_max = 30.0
+tangential_accel_min = -50.0
+tangential_accel_max = 50.0
+damping_min = 50.0
+damping_max = 70.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_8snj0")
+color_ramp = SubResource("Gradient_hxmjf")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

@@ -1,25 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://22u7s6juo4jm"]
+[gd_scene load_steps=20 format=3 uid="uid://22u7s6juo4jm"]
 
 [ext_resource type="Script" path="res://characters/enemies/crab/crab.gd" id="1_qyfw7"]
 [ext_resource type="Texture2D" uid="uid://y740qmx53bi1" path="res://assets/textures/sprites/cave_crab/crab-idle.png" id="2_2t7hh"]
+[ext_resource type="Shader" path="res://utils/hit_flash.gdshader" id="2_cwh4w"]
 [ext_resource type="Texture2D" uid="uid://cs1u7rn0ijr5v" path="res://assets/textures/sprites/cave_crab/crab-walk.png" id="3_tqomm"]
-[ext_resource type="PackedScene" uid="uid://bf6peb0wup3jk" path="res://utils/hitbox.tscn" id="4_ecpe2"]
-[ext_resource type="PackedScene" uid="uid://b4mcnkgnhc0bt" path="res://utils/hurtbox.tscn" id="5_45ui1"]
+[ext_resource type="Script" path="res://utils/hurtbox.gd" id="4_fwxl5"]
 [ext_resource type="Script" path="res://characters/enemies/crab/states/idle.gd" id="7_g08ef"]
 [ext_resource type="Script" path="res://characters/enemies/crab/states/patrol.gd" id="8_inqtp"]
 [ext_resource type="Script" path="res://characters/enemies/crab/states/chase.gd" id="9_tj6l8"]
 [ext_resource type="Script" path="res://characters/enemies/crab/states/attack.gd" id="10_s1bpp"]
+[ext_resource type="Script" path="res://characters/enemies/crab/states/hurt.gd" id="11_mx2tn"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="35_4bdv2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
 radius = 7.0
 height = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kivb"]
-size = Vector2(22, 21)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vot4y"]
+shader = ExtResource("2_cwh4w")
+shader_parameter/active = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t008i"]
-size = Vector2(18, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5gn6"]
 
 [sub_resource type="Animation" id="Animation_uln2b"]
 length = 0.001
@@ -46,6 +47,95 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_2t7hh")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_27ahb"]
+resource_name = "hurt"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2t7hh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ur0iy"]
@@ -109,6 +199,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rnmig"]
 _data = {
 "RESET": SubResource("Animation_uln2b"),
+"hurt": SubResource("Animation_27ahb"),
 "idle": SubResource("Animation_ur0iy"),
 "walk": SubResource("Animation_b4hyn")
 }
@@ -117,32 +208,26 @@ _data = {
 collision_mask = 3
 floor_max_angle = 0.872665
 script = ExtResource("1_qyfw7")
-speed = 35.0
-health = 10
+health = 15
 points = 100
 damage = 2
-detection_range = 200.0
-field_of_view_angle = 65.0
+speed = 35.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_k6kkr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vot4y")
 texture = ExtResource("2_2t7hh")
 hframes = 4
 
-[node name="Hitbox" parent="." instance=ExtResource("4_ecpe2")]
+[node name="Hurtbox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("4_fwxl5")
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_2kivb")
-
-[node name="Hurtbox" parent="." instance=ExtResource("5_45ui1")]
-collision_mask = 5
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_t008i")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox"]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_w5gn6")
 
 [node name="Player_RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 2
@@ -174,5 +259,5 @@ script = ExtResource("9_tj6l8")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("10_s1bpp")
 
-[editable path="Hitbox"]
-[editable path="Hurtbox"]
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("11_mx2tn")

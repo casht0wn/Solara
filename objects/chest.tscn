@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsl1qxwgalrot"]
+
+[ext_resource type="Texture2D" uid="uid://dx587jsamyeq" path="res://assets/textures/objects/Chests.png" id="1_7yfyc"]
+[ext_resource type="Script" path="res://objects/chest.gd" id="1_kf5rl"]
+[ext_resource type="Texture2D" uid="uid://damluk8eanhds" path="res://assets/textures/objects/symbol_01.png" id="2_bx3vh"]
+[ext_resource type="Texture2D" uid="uid://bkbg7ri8ubh22" path="res://assets/textures/objects/trace_06.png" id="3_4ipwu"]
+
+[sub_resource type="Animation" id="Animation_8wjv8"]
+resource_name = "hint"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lhd85"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_726w4"]
+resource_name = "open"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ke625"]
+_data = {
+"RESET": SubResource("Animation_lhd85"),
+"hint": SubResource("Animation_8wjv8"),
+"open": SubResource("Animation_726w4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq8q8"]
+size = Vector2(28, 20)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0kq1y"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_vceka"]
+max_value = 0.1
+_data = [Vector2(0, 0.02), 0.0, 0.0, 0, 0, Vector2(1, 0.03), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Chest" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_kf5rl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7yfyc")
+hframes = 5
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ke625")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 6)
+shape = SubResource("RectangleShape2D_pq8q8")
+
+[node name="Hearts" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_0kq1y")
+position = Vector2(-9, 6)
+emitting = false
+amount = 6
+one_shot = true
+explosiveness = 0.51
+texture = ExtResource("2_bx3vh")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -25)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+damping_min = 20.0
+damping_max = 50.0
+scale_amount_curve = SubResource("Curve_vceka")
+color = Color(1, 0.376471, 0.376471, 0.501961)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Traces" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_0kq1y")
+position = Vector2(-9, 6)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.51
+texture = ExtResource("3_4ipwu")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -25)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+damping_min = 20.0
+damping_max = 50.0
+scale_amount_curve = SubResource("Curve_vceka")
+color = Color(0.928765, 0.178413, 1, 0.501961)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

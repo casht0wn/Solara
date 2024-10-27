@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://s8vlv0n4yt6n"
+path="res://.godot/imported/Socapex - Monster_Hurt.wav-d487c2363b96a9076f1749279010b1cb.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/Socapex - Monster_Hurt.wav"
+dest_files=["res://.godot/imported/Socapex - Monster_Hurt.wav-d487c2363b96a9076f1749279010b1cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

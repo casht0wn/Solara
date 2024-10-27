@@ -7,12 +7,12 @@ class_name PowerUp extends Area2D
 var activated: bool = false
 var collected: bool = false
 
-signal power_up(ability: int)
+signal power_up(ability: int, power_up: PowerUp)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		$PointLight2D.enabled = true
 		if !collected:
 			activated = true
-			emit_signal("power_up", powerup_ability)
+			emit_signal("power_up", powerup_ability, self)
 		

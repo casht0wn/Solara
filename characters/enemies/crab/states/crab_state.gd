@@ -19,6 +19,7 @@ func _ready() -> void:
 	timer.connect("timeout", self._on_check_line_of_sight)
 	add_child(timer)
 
+
 # Apply Gravity
 func apply_gravity(delta: float) -> void:
 	crab.velocity.y += crab.gravity * delta
@@ -41,12 +42,12 @@ func avoid_falling(dir_x: float) -> float:
 
 # Check line of sight
 func check_line_of_sight():
-	var direction_to_player = crab.player.global_position - crab.global_position
+	var dir_to_player = crab.get_direction_to_target()
 
 	# Check if the player is within detection range
-	if direction_to_player.length() <= crab.detection_range:
+	if dir_to_player.length() <= crab.detection_range:
 		# Make sure raycasting works for both directions (left or right)
-		crab.raycast.target_position = direction_to_player.normalized() * crab.detection_range
+		crab.raycast.target_position = dir_to_player.normalized() * crab.detection_range
 		crab.raycast.force_raycast_update()
 
 		# Check for line of sight

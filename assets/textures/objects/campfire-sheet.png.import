@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpj4f2watnv7d"
-path="res://.godot/imported/Solara_title_blank.png-3c3b83184162e1565a88c6eb8ba6db6e.ctex"
+uid="uid://bhjrnp0tjjgk7"
+path="res://.godot/imported/campfire-sheet.png-6182cc7da00ce2c77e2bb7b7b6b79515.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Solara_title_blank.png"
-dest_files=["res://.godot/imported/Solara_title_blank.png-3c3b83184162e1565a88c6eb8ba6db6e.ctex"]
+source_file="res://assets/textures/objects/campfire-sheet.png"
+dest_files=["res://.godot/imported/campfire-sheet.png-6182cc7da00ce2c77e2bb7b7b6b79515.ctex"]
 
 [params]
 

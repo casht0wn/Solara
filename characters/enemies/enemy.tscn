@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxyifc58vbqab"]
+[gd_scene load_steps=11 format=3 uid="uid://dxyifc58vbqab"]
 
 [ext_resource type="Texture2D" uid="uid://y740qmx53bi1" path="res://assets/textures/sprites/cave_crab/crab-idle.png" id="2_1le4o"]
-[ext_resource type="PackedScene" uid="uid://bf6peb0wup3jk" path="res://utils/hitbox.tscn" id="3_cdlp7"]
-[ext_resource type="PackedScene" uid="uid://b4mcnkgnhc0bt" path="res://utils/hurtbox.tscn" id="4_qdvxg"]
+[ext_resource type="Script" path="res://utils/hurtbox.gd" id="2_k5ap6"]
 [ext_resource type="Texture2D" uid="uid://cs1u7rn0ijr5v" path="res://assets/textures/sprites/cave_crab/crab-walk.png" id="5_beab1"]
 [ext_resource type="Script" path="res://utils/state_machine.gd" id="6_f86f3"]
 
@@ -10,11 +9,7 @@
 radius = 7.0
 height = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kivb"]
-size = Vector2(22, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t008i"]
-size = Vector2(18, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oivhl"]
 
 [sub_resource type="Animation" id="Animation_uln2b"]
 length = 0.001
@@ -120,17 +115,12 @@ shape = SubResource("CapsuleShape2D_k6kkr")
 texture = ExtResource("2_1le4o")
 hframes = 4
 
-[node name="Hitbox" parent="." instance=ExtResource("3_cdlp7")]
+[node name="Hurtbox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("2_k5ap6")
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_2kivb")
-
-[node name="Hurtbox" parent="." instance=ExtResource("4_qdvxg")]
-collision_mask = 5
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_t008i")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hurtbox"]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_oivhl")
 
 [node name="Player_RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 2
@@ -158,5 +148,4 @@ script = ExtResource("6_f86f3")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 
-[editable path="Hitbox"]
-[editable path="Hurtbox"]
+[node name="Hurt" type="Node" parent="StateMachine"]

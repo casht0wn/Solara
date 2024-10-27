@@ -6,8 +6,6 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.dash_time = player.dash_duration
 	if not player.is_on_floor():
 		player.dash_cooldown_timer = player.dash_cooldown
-	player.sfx_player["parameters/switch_to_clip"] = "slide"
-	player.sfx_player.play()
 	
 func physics_update(delta: float) -> void:
 	var direction = get_movement_input()
@@ -27,4 +25,3 @@ func physics_update(delta: float) -> void:
 
 func exit() -> void:
 	reset_player_animations()
-	player.sfx_player.stop()

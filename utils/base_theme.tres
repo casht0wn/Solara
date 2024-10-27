@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://3x65nuwnr4r0" path="res://assets/textures/ui/Panel/panel-015.png" id="13_wktoc"]
 [ext_resource type="Texture2D" uid="uid://bvmfs0fqgits8" path="res://assets/textures/ui/Panel/panel-021.png" id="14_6s7nv"]
 [ext_resource type="Texture2D" uid="uid://cbb7jnuw6w386" path="res://assets/textures/ui/Transparent border/panel-transparent-border-015.png" id="14_10wkh"]
-[ext_resource type="FontFile" uid="uid://b2tl0gn0r21qs" path="res://assets/fonts/alagard.ttf" id="15_1n5nt"]
+[ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://assets/fonts/MorrisRomanBlack.ttf" id="16_jax4u"]
 [ext_resource type="Texture2D" uid="uid://bdhygh47y6dqo" path="res://assets/textures/ui/PNG/Extra/Default/input_rectangle.png" id="17_m6bj8"]
 [ext_resource type="Texture2D" uid="uid://ba41xt57llcys" path="res://assets/textures/ui/PNG/Extra/Default/input_outline_rectangle.png" id="18_iwkpc"]
 
@@ -207,7 +207,7 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 
 [resource]
-default_font = ExtResource("15_1n5nt")
+default_font = ExtResource("16_jax4u")
 AcceptDialog/styles/panel = SubResource("StyleBoxTexture_rjarw")
 Button/colors/font_color = Color(0.12549, 0.12549, 0.12549, 1)
 Button/colors/font_disabled_color = Color(0.125911, 0.125911, 0.125911, 0.5)

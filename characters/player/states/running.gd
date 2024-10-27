@@ -31,10 +31,11 @@ func physics_update(delta: float) -> void:
 		finished.emit(JUMPING)
 	elif Input.is_action_just_pressed("dash"):
 		finished.emit(DASHING)
-	elif player.power_up.activated:
-		finished.emit(POWERUP)
 	elif is_equal_approx(input_direction_x, 0.0):
 		finished.emit(IDLE)
+
+func _on_power_up_power_up(ability: int, power_up: PowerUp) -> void:
+	finished.emit(POWERUP, {"power_up": power_up})
 
 func exit() -> void:
 	reset_player_animations()

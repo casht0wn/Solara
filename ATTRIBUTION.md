@@ -2,6 +2,7 @@
 ## Collaborators
 
 ### Developers
+
 casht0wn
 
 
@@ -24,6 +25,10 @@ License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### Music
 #### Background & Menu Music
+Author: Sara Garrard 
+Source: [sonatina.itch.io](https://sonatina.itch.io/)  
+License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 Author: Of Far Different Nature 
 Source: [fardifferent.carrd.co](https://fardifferent.carrd.co/)  
 License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)

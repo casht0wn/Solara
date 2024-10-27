@@ -19,7 +19,9 @@ func _ready() -> void:
 	player.animation_tree.active = true
 	player.speed = player.run_speed
 	player.jump_impulse = player.jump_power
-	player.power_up.connect("power_up", Callable(self, "_on_power_up_power_up"))
+	var power_ups = player.powerups.get_children()
+	for power_up in power_ups:
+		power_up.connect("power_up", Callable(self, "_on_power_up_power_up"))
 
 # Apply Gravity
 func apply_gravity(delta: float) -> void:
@@ -75,13 +77,8 @@ func handle_crouch() -> void:
 	player.animation_tree.set("parameters/Land/blend_position", player.armed)
 	
 
-# Player Damaged
-func _on_player_hit(damage_amount):
-	player.emit_signal("player_damaged", damage_amount)
-
-
+# Reset all animation conditions
 func reset_player_animations() -> void:
-	# Reset all animation conditions
 	player.animation_tree.set("parameters/conditions/idle", false)
 	player.animation_tree.set("parameters/conditions/is_attacking", false)
 	player.animation_tree.set("parameters/conditions/is_dashing", false)
@@ -91,9 +88,9 @@ func reset_player_animations() -> void:
 	player.animation_tree.set("parameters/conditions/is_powering_up", false)
 	player.animation_tree.set("parameters/conditions/is_sliding", false)
 	player.animation_tree.set("parameters/conditions/is_walking", false)
-		
 
-func _on_power_up_power_up(ability: int) -> void:
+
+func _on_power_up_power_up(ability: int, power_up: PowerUp) -> void:
 	match ability:
 		0: player.can_doublejump = true
 		1: player.can_airdash = true
