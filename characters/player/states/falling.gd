@@ -10,11 +10,14 @@ func physics_update(delta: float) -> void:
 	flip_facing(input_direction_x)
 	apply_gravity(delta)
 	apply_air_drag()
+	check_ledge_grab()
 	player.move_and_slide()
 
 	if Input.is_action_just_pressed("dash") and player.can_airdash and player.dash_cooldown_timer <= 0:
 		finished.emit(DASHING)
-	if player.is_on_wall() and player.can_wallslide:
+	elif player.animation_tree.get("parameters/conditions/is_grabbing"):
+		finished.emit(GRABBING)
+	elif player.is_on_wall_only() and player.can_wallslide and player.slide_check.is_colliding():
 		finished.emit(SLIDING)
 	elif Input.is_action_pressed("attack1"):
 		finished.emit(ATTACK1)

@@ -6,7 +6,7 @@ func enter(previous_state_path: String, _data := {}) -> void:
 	player.jump_count += 1
 	player.animation_tree.set("parameters/conditions/is_jumping", true)
 	player.velocity.y = -player.jump_impulse
-	if previous_state_path == "WallSliding":
+	if previous_state_path == "WallSliding" or previous_state_path == "Grabbing":
 		walljump = true
 	else:
 		walljump = false

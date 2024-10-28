@@ -42,12 +42,14 @@ var can_wallslide: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var hitbox = $Hitbox
-@onready var hurtbox = $Hurtbox
-@onready var slide_dust: CPUParticles2D = $Particles/SlideDust
+@onready var slide_dust: CPUParticles2D = $Sprite2D/Particles/SlideDust
 @onready var sfx_player: AudioStreamPlayer2D = $SfxOneShot
 @onready var sfx_walk: AudioStreamPlayer2D = $SfxWalk
 @onready var powerups: Node = get_node("%PowerUps")
+
+@onready var slide_check: RayCast2D = $Sprite2D/SlideCheck
+@onready var grab_check: RayCast2D = $Sprite2D/GrabCheck
+@onready var ledge_check: RayCast2D = $Sprite2D/LedgeCheck
 
 signal enemy_killed(points: int)
 

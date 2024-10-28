@@ -9,6 +9,8 @@ const DASHING = "Dashing"
 const SLIDING = "WallSliding"
 const ATTACK1 = "Attack1"
 const POWERUP = "PowerUp"
+const GRABBING = "Grabbing"
+const VAULTING = "Vaulting"
 
 var player: Player
 
@@ -88,6 +90,19 @@ func reset_player_animations() -> void:
 	player.animation_tree.set("parameters/conditions/is_powering_up", false)
 	player.animation_tree.set("parameters/conditions/is_sliding", false)
 	player.animation_tree.set("parameters/conditions/is_walking", false)
+	player.animation_tree.set("parameters/conditions/is_climbing", false)
+
+
+func check_ledge_grab() -> void:
+	var is_grabbing = player.animation_tree.get("parameters/conditions/is_grabbing")
+	var is_falling = player.animation_tree.get("parameters/conditions/is_falling")
+	var slide_check = player.slide_check.is_colliding()
+	var grab_check = not player.grab_check.is_colliding()
+	var ledge_check = player.ledge_check.is_colliding()
+
+	var can_grab = is_falling && grab_check && ledge_check && not slide_check && not is_grabbing && player.is_on_wall_only()
+	if can_grab:
+		player.animation_tree.set("parameters/conditions/is_grabbing", true)
 
 
 func _on_power_up_power_up(ability: int, power_up: PowerUp) -> void:
