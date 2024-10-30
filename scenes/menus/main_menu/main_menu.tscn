@@ -6,17 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://h4wckw40c0d2" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_4o0qs"]
 [ext_resource type="PackedScene" uid="uid://d4ls6hw8dfe68" path="res://scenes/credits/credits.tscn" id="4_fxdjs"]
 [ext_resource type="FontFile" uid="uid://e8km8s2t7nes" path="res://assets/fonts/MorrisRomanBlack.ttf" id="5_lm0sf"]
-[ext_resource type="Texture2D" uid="uid://s5noecc2nxix" path="res://assets/images/solara_title_hd.jpeg" id="6_35kul"]
-[ext_resource type="Texture2D" uid="uid://bc715l1tmkywc" path="res://assets/textures/ui/Transparent center/panel-transparent-center-031.png" id="8_a1l2m"]
+[ext_resource type="Texture2D" uid="uid://dtwmm0q1gxfj2" path="res://assets/images/solara_title2_hd.jpeg" id="6_iauru"]
+[ext_resource type="Texture2D" uid="uid://b1255sb6mvvex" path="res://assets/textures/ui/Transparent center/panel-transparent-center-025.png" id="8_umfer"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo32q"]
-texture = ExtResource("8_a1l2m")
+texture = ExtResource("8_umfer")
 texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
 texture_margin_bottom = 24.0
 expand_margin_top = 12.0
-modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
+expand_margin_bottom = 24.0
+modulate_color = Color(0.141176, 0.160784, 0.180392, 1)
 
 [node name="MainMenu" instance=ExtResource("1_ai2nc")]
 theme = ExtResource("2_b15q7")
@@ -26,8 +27,9 @@ options_packed_scene = ExtResource("3_4o0qs")
 credits_packed_scene = ExtResource("4_fxdjs")
 
 [node name="BackgroundTextureRect" parent="." index="2"]
-texture = ExtResource("6_35kul")
+texture = ExtResource("6_iauru")
 stretch_mode = 6
+flip_h = true
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
 anchors_preset = 5
@@ -42,4 +44,21 @@ theme_override_font_sizes/font_size = 96
 theme_override_styles/normal = SubResource("StyleBoxTexture_eo32q")
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
-visible = false
+offset_top = 31.0
+offset_bottom = 65.0
+theme_override_constants/outline_size = 1
+text = "Journey of the Sun Shards"
+
+[node name="Panel" type="Panel" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -59,11 +59,7 @@ func toggle_weapon() -> void:
 		player.speed = player.run_speed
 		player.jump_impulse = player.jump_power
 	# Reset blend positions
-	player.animation_tree.set("parameters/Idle/blend_position", Vector2(player.armed, player.crouched))
-	player.animation_tree.set("parameters/Walk/blend_position", Vector2(player.armed, player.crouched))
-	player.animation_tree.set("parameters/Jump/blend_position", player.armed)
-	player.animation_tree.set("parameters/Fall/blend_position", player.armed)
-	player.animation_tree.set("parameters/Land/blend_position", player.armed)
+	reset_blend_positions()
 
 func handle_crouch() -> void:
 	player.crouched = Input.is_action_pressed("crouch")
@@ -72,12 +68,15 @@ func handle_crouch() -> void:
 	else:
 		player.speed = player.run_speed
 	# Reset blend positions
+	reset_blend_positions()
+
+# Reset all blend positions
+func reset_blend_positions() -> void:
 	player.animation_tree.set("parameters/Idle/blend_position", Vector2(player.armed, player.crouched))
 	player.animation_tree.set("parameters/Walk/blend_position", Vector2(player.armed, player.crouched))
 	player.animation_tree.set("parameters/Jump/blend_position", player.armed)
 	player.animation_tree.set("parameters/Fall/blend_position", player.armed)
 	player.animation_tree.set("parameters/Land/blend_position", player.armed)
-	
 
 # Reset all animation conditions
 func reset_player_animations() -> void:

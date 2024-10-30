@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxyifc58vbqab"]
+[gd_scene load_steps=18 format=3 uid="uid://dxyifc58vbqab"]
 
+[ext_resource type="Shader" path="res://utils/pixel_explode.gdshader" id="1_8kivo"]
 [ext_resource type="Texture2D" uid="uid://y740qmx53bi1" path="res://assets/textures/sprites/cave_crab/crab-idle.png" id="2_1le4o"]
 [ext_resource type="Script" path="res://utils/hurtbox.gd" id="2_k5ap6"]
 [ext_resource type="Texture2D" uid="uid://cs1u7rn0ijr5v" path="res://assets/textures/sprites/cave_crab/crab-walk.png" id="5_beab1"]
@@ -8,6 +9,33 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6kkr"]
 radius = 7.0
 height = 26.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mc8mw"]
+noise_type = 0
+seed = 75
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i6ikn"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_mc8mw")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_66mni"]
+noise_type = 0
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jt21c"]
+width = 32
+height = 32
+as_normal_map = true
+noise = SubResource("FastNoiseLite_66mni")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trngm"]
+shader = ExtResource("1_8kivo")
+shader_parameter/progress = 0.3
+shader_parameter/strength = 0.15
+shader_parameter/noise_tex_normal = SubResource("NoiseTexture2D_jt21c")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_i6ikn")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oivhl"]
 
@@ -36,6 +64,90 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_1le4o")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_trngm")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:material:shader")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8kivo")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:material:shader_parameter/progress")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:material:shader_parameter/strength")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:material:shader_parameter/noise_tex_normal")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_jt21c")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:material:shader_parameter/noise_tex")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_i6ikn")]
 }
 
 [sub_resource type="Animation" id="Animation_ur0iy"]
@@ -96,9 +208,135 @@ tracks/1/keys = {
 "values": [ExtResource("5_beab1")]
 }
 
+[sub_resource type="Animation" id="Animation_hdkhd"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1le4o")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_trngm")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:material:shader")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8kivo")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:material:shader_parameter/progress")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:material:shader_parameter/strength")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:material:shader_parameter/noise_tex_normal")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_jt21c")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:material:shader_parameter/noise_tex")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_i6ikn")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rnmig"]
 _data = {
 "RESET": SubResource("Animation_uln2b"),
+"die": SubResource("Animation_hdkhd"),
 "idle": SubResource("Animation_ur0iy"),
 "walk": SubResource("Animation_b4hyn")
 }
@@ -112,6 +350,7 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_k6kkr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_trngm")
 texture = ExtResource("2_1le4o")
 hframes = 4
 

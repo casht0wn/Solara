@@ -16,7 +16,7 @@ class_name Player extends Character
 @export var coyote_time: float = 0.1
 @export var jump_buffer_time: float = 0.2
 @export var wall_jump_force: float = 50.0
-@export var armed_debuff_multiplier: float = 0.85
+@export_range(0.0,1.0) var armed_debuff_multiplier: float = 0.65
 @export_group("Dash Adjustments")
 @export var dash_duration: float = 0.2
 @export var dash_cooldown: float = 0.5
