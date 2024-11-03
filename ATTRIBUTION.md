@@ -2,7 +2,6 @@
 ## Collaborators
 
 ### Developers
-
 casht0wn
 
 
@@ -12,16 +11,19 @@ casht0wn
 Author: JumpButton  
 Source: [jumpbutton.itch.io](https://jumpbutton.itch.io/)  
 
+
 ### Tilesets and Backgrounds
 #### Level Environments
 Author: szadzi art  
 Source: [szadiart.itch.io](https://szadiart.itch.io/)  
+
 
 ### Additional VFX
 #### Particle Effects
 Author: Raphael Hatencia
 Source: [ragnapixel.itch.io](https://ragnapixel.itch.io/)  
 License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 
 ### Music
 #### Background & Menu Music
@@ -33,11 +35,13 @@ Author: Of Far Different Nature
 Source: [fardifferent.carrd.co](https://fardifferent.carrd.co/)  
 License: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+
 ### Sound Effects
 #### UI SFX
 Author: Kenney
 Source: [kenney.nl](https://kenney.nl/)  
 License: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+
 
 ## Tools
 #### Godot
@@ -54,3 +58,13 @@ License: [GNU General Public License version 2](https://opensource.org/licenses/
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
 License: [MIT License](LICENSE.txt)  
+
+#### Godot-Mapcrafter
+Author: [NAD LABS](https://www.nadlabs.xyz/)
+Source: [github: Godot-Mapcrafter](https://github.com/aimforbigfoot/Godot-Mapcrafter)
+License: [MIT License](LICENSE.txt)  
+
+#### Better Terrain
+Author: [Portponky on contributors](https://github.com/Portponky/better-terrain/graphs/contributors)
+Source: [github: better-terrain](https://github.com/Portponky/better-terrain)
+License: [Unlicense](https://unlicense.org/)

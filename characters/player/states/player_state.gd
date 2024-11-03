@@ -21,9 +21,9 @@ func _ready() -> void:
 	player.animation_tree.active = true
 	player.speed = player.run_speed
 	player.jump_impulse = player.jump_power
-	var power_ups = player.powerups.get_children()
-	for power_up in power_ups:
-		power_up.connect("power_up", Callable(self, "_on_power_up_power_up"))
+#	var power_ups = player.powerups.get_children()
+#	for power_up in power_ups:
+#		power_up.connect("power_up", Callable(self, "_on_power_up_power_up"))
 
 # Apply Gravity
 func apply_gravity(delta: float) -> void:

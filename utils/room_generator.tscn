@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://cno87w2g0mgb7"]
+
+[ext_resource type="Script" path="res://utils/room_generator.gd" id="1_ec32v"]
+[ext_resource type="Script" path="res://utils/room_gen_cam.gd" id="2_aebu7"]
+[ext_resource type="TileSet" uid="uid://bwhosoh17467b" path="res://levels/level1/level_1_tile_set.tres" id="2_bl52u"]
+[ext_resource type="Texture2D" uid="uid://2cskmtqctbr3" path="res://levels/level1/textures/SET3_background1.png" id="2_uaasd"]
+[ext_resource type="Texture2D" uid="uid://boq85b71mhcdx" path="res://levels/level1/textures/SET3_background2.png" id="3_d88qc"]
+[ext_resource type="Texture2D" uid="uid://cbls8dbghcxnw" path="res://levels/level1/textures/SET3_background3.png" id="4_d6m2d"]
+[ext_resource type="Texture2D" uid="uid://be0da2r8dgypt" path="res://levels/level1/textures/SET3_background4.png" id="5_uhcvx"]
+
+[node name="RoomGenerator" type="Node2D"]
+script = ExtResource("1_ec32v")
+enter_left = true
+exit_left = true
+exit_right = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(1600, 950)
+
+[node name="BG1" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(640, 640)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BG1"]
+texture = ExtResource("2_uaasd")
+
+[node name="BG2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(640, 640)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BG2"]
+texture = ExtResource("3_d88qc")
+
+[node name="BG3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(640, 640)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BG3"]
+texture = ExtResource("4_d6m2d")
+
+[node name="BG4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.95, 0.95)
+repeat_size = Vector2(640, 640)
+repeat_times = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BG4"]
+texture = ExtResource("5_uhcvx")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("2_bl52u")
+
+[node name="Ground" type="TileMapLayer" parent="TileMapLayers"]
+tile_set = ExtResource("2_bl52u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 2500)
+zoom = Vector2(0.2, 0.2)
+script = ExtResource("2_aebu7")
+
+[node name="controls" type="Label" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -696.5
+offset_top = -33.5
+offset_right = 696.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "[scroll: zoom] [arrows: move] [esc: relaod] [tab: test] [?: save]"

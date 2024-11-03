@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var enemy_spawns = spawns
 	var spawned_enemies = get_tree().get_nodes_in_group("Enemy")
 

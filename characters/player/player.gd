@@ -35,9 +35,9 @@ var armed: bool = false
 var crouched: bool = false
 
 # Abilities
-var can_airdash: bool = false
-var can_doublejump: bool = false
-var can_wallslide: bool = false
+var can_airdash: bool = true
+var can_doublejump: bool = true
+var can_wallslide: bool = true
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

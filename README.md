@@ -30,7 +30,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 ### Game Summary
-*Solara's Ascent: Journey of the Sun Shards* is an exhilarating 2D platformer that blends hack-and-slash action with roguelike elements. Players control Solara, a courageous female knight from an ancient order, who embarks on a journey to restore light to a world plunged into eternal twilight.
+*Solara: Journey of the Sun Shards* is an exhilarating 2D platformer that blends hack-and-slash action with roguelike elements. Players control Solara, a courageous female knight from an ancient order, who embarks on a journey to restore light to a world plunged into eternal twilight.
 
 ### Story
 In a world cast into darkness by the shattering of a powerful amulet linked to the sun, Solara must retrieve the scattered fragments to bring back the light. Starting from deep within treacherous caves, she ascends through diverse biomes—mines, jungle ravines, surface plains, mountainous terrains, high peaks, and finally the ethereal clouds—to fulfill her destiny.
